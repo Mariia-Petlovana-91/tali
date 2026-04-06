@@ -1,0 +1,31 @@
+@config "../../tailwind.config.ts";
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --bg: #f6f6f6;
+    --text: #010101;
+    --bg-btn: #1d1d1d;
+    --text-btn: #f6f6f6;
+    --primary-grey: #5d5a5a;
+    --secondary-grey: #938b8b;
+    --dropdown-bg: #dedede;
+  }
+
+  .dark {
+    --bg: #1a1a1a;
+    --text: #3f7b9c;
+    --bg-btn: #f6f6f6;
+    --text-btn: #010101;
+    --primary-grey: #bbb7b7;
+    --secondary-grey: #f6f6f6;
+    --dropdown-bg: #121111;
+  }
+  body {
+    font-family: Xanh Mono, monospace;
+  }
+}
+
+@layer components {
+
+}
