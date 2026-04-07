@@ -9,7 +9,7 @@
     --text-btn: #f6f6f6;
     --primary-grey: #5d5a5a;
     --secondary-grey: #938b8b;
-    --dropdown-bg: #dedede;
+    --dropdown-bg: #120f0f;
   }
 
   .dark {
@@ -27,5 +27,11 @@
 }
 
 @layer components {
-
+.hero {
+ @apply
+  background:
+    radial-gradient(circle at 70% 30%, rgba(120, 20, 40, 0.35), transparent 30%),
+    radial-gradient(circle at 85% 70%, rgba(255, 120, 80, 0.12), transparent 25%),
+    #12090d;
+}
 }
