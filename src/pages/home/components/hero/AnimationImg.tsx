@@ -722,40 +722,53 @@ const getPointerProgress = (
  */
 const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
   const glow = root.querySelector<HTMLElement>("[data-glow]");
-  const allPieces = gsap.utils.toArray<HTMLElement>(root.querySelectorAll("[data-piece]"));
-
-  gsap.killTweensOf(allPieces);
-  if (glow) gsap.killTweensOf(glow);
+  const allPieces = gsap.utils.toArray<HTMLElement>(
+    root.querySelectorAll("[data-piece]")
+  );
 
   gsap.set(stage, {
     transformPerspective: 1200,
     transformStyle: "preserve-3d",
+    perspectiveOrigin: "50% 50%",
   });
 
   gsap.set(allPieces, {
-    opacity: 0,
-    visibility: "hidden",
+    x: (i) => [-260, 220, -180, 300, -240, 160, -140, 260][i % 8],
+    y: (i) => [-180, -260, 220, 140, -120, 280, 180, -160][i % 8],
+    rotation: (i) => [-16, 12, -10, 18, -14, 9, -7, 14][i % 8],
+    scale: 0.9,
+    opacity: 0.08,
+    transformOrigin: "center center",
+    willChange: "transform, opacity",
+    force3D: true,
+    z: 0,
   });
 
   if (glow) {
     gsap.set(glow, {
+      scale: 0.94,
       opacity: 0,
-      visibility: "hidden",
+      x: 0,
+      y: 0,
+      transformOrigin: "center center",
+      willChange: "transform, opacity",
+      force3D: true,
+      z: 0,
     });
   }
 
-  const intro = gsap.timeline();
-
-  intro.set(allPieces, { visibility: "visible" }, 0);
-  if (glow) intro.set(glow, { visibility: "visible" }, 0);
+  const intro = gsap.timeline({
+    defaults: { ease: "power3.out" },
+  });
 
   if (glow) {
     intro.to(
       glow,
       {
         opacity: 0.72,
-        duration: 1,
-        ease: "power2.out",
+        scale: 1,
+        duration: 1.1,
+        clearProps: "willChange",
       },
       0
     );
@@ -764,18 +777,21 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
   intro.to(
     allPieces,
     {
+      x: 0,
+      y: 0,
+      rotation: 0,
+      scale: 1,
       opacity: 1,
-      duration: 0.8,
-      ease: "power2.out",
+      duration: 1.15,
+      ease: "power3.out",
       stagger: {
-        each: 0.06,
+        each: 0.07,
         from: "start",
       },
+      clearProps: "willChange",
     },
-    0.04
+    0.05
   );
-
-  return intro;
 };
 /**
  * Hover/parallax-анімація.
@@ -913,7 +929,7 @@ const AnimationImg = () => {
    */
   useLayoutEffect(() => {
     if (!rootRef.current || !stageRef.current) return;
-console.log("mounted");
+
     const root = rootRef.current;
     const stage = stageRef.current;
 
@@ -921,9 +937,7 @@ console.log("mounted");
       animateIntro(root, stage);
     }, rootRef);
 
-    return () => {
-      ctx.revert();
-      console.log("unmounted");};
+    return () => ctx.revert();
   }, []);
 
   /**
@@ -1050,9 +1064,8 @@ console.log("mounted");
         >
           {/* М’який glow під усією сценою */}
           <div
-
             data-glow
-            className="intro-glow absolute inset-0 pointer-events-none rounded-[32px] shadow-[0_0_80px_rgba(255,210,110,0.08),0_0_180px_rgba(255,190,80,0.06),inset_0_0_60px_rgba(255,220,140,0.04)]"
+            className="absolute inset-0 pointer-events-none rounded-[32px] shadow-[0_0_80px_rgba(255,210,110,0.08),0_0_180px_rgba(255,190,80,0.06),inset_0_0_60px_rgba(255,220,140,0.04)]"
           />
 
           {/* Усі preview-шматки */}
@@ -1067,7 +1080,7 @@ console.log("mounted");
               draggable={false}
               width={700}
               height={840}
-              className={`intro-piece absolute inset-0 h-full w-full object-contain select-none pointer-events-none transition-opacity duration-200 ${
+              className={`absolute inset-0 h-full w-full object-contain select-none pointer-events-none transition-opacity duration-200 ${
                 hoveredId && hoveredId !== piece.id ? "opacity-75" : "opacity-100"
               } [filter:drop-shadow(0_0_14px_rgba(255,220,140,0.04))_drop-shadow(0_0_36px_rgba(255,200,90,0.05))]`}
             />

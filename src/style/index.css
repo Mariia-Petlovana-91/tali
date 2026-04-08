@@ -39,22 +39,6 @@
     display: none;
   }
 
-    .intro-piece {
-    @apply opacity-0;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-  }
-
-  .intro-glow {
-    @apply opacity-0;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-  }
-
-  .intro-piece,
-  .intro-glow {
-    @apply invisible opacity-0;
-  }
 }
 
 
