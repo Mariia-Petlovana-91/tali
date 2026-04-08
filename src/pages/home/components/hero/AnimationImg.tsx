@@ -736,8 +736,8 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
     x: (i) => [-260, 220, -180, 300, -240, 160, -140, 260][i % 8],
     y: (i) => [-180, -260, 220, 140, -120, 280, 180, -160][i % 8],
     rotation: (i) => [-16, 12, -10, 18, -14, 9, -7, 14][i % 8],
-    scale: 0.9,
-    opacity: 0.08,
+    scale: 0.78,
+    opacity: 0.06,
     transformOrigin: "center center",
     willChange: "transform, opacity",
     force3D: true,
@@ -746,7 +746,7 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
 
   if (glow) {
     gsap.set(glow, {
-      scale: 0.94,
+      scale: 0.9,
       opacity: 0,
       x: 0,
       y: 0,
@@ -780,17 +780,32 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
       x: 0,
       y: 0,
       rotation: 0,
-      scale: 1,
-      opacity: 1,
-      duration: 1.15,
+      scale: 0.92,
+      opacity: 0.72,
+      duration: 0.95,
       ease: "power3.out",
       stagger: {
         each: 0.07,
         from: "start",
       },
+    },
+    0.04
+  );
+
+  intro.to(
+    allPieces,
+    {
+      scale: 1,
+      opacity: 1,
+      duration: 0.42,
+      ease: "back.out(1.15)",
+      stagger: {
+        each: 0.05,
+        from: "start",
+      },
       clearProps: "willChange",
     },
-    0.05
+    0.72
   );
 };
 /**
