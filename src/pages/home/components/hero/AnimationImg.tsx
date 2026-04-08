@@ -733,27 +733,29 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
   });
 
   gsap.set(allPieces, {
-    x: (i) => [-260, 220, -180, 300, -240, 160, -140, 260][i % 8],
-    y: (i) => [-180, -260, 220, 140, -120, 280, 180, -160][i % 8],
-    rotation: (i) => [-16, 12, -10, 18, -14, 9, -7, 14][i % 8],
-    scale: 0.78,
-    opacity: 0.06,
+    x: (i) => 64 + i * 10,
+    y: (i) => 42 + i * 8,
+    rotation: (i) => 4 - i * 0.45,
+    scale: 0.94,
+    opacity: 0,
     transformOrigin: "center center",
     willChange: "transform, opacity",
     force3D: true,
-    z: 0,
+    z: 0.01,
+    backfaceVisibility: "hidden",
   });
 
   if (glow) {
     gsap.set(glow, {
-      scale: 0.9,
+      x: 18,
+      y: 18,
+      scale: 0.97,
       opacity: 0,
-      x: 0,
-      y: 0,
       transformOrigin: "center center",
       willChange: "transform, opacity",
       force3D: true,
-      z: 0,
+      z: 0.01,
+      backfaceVisibility: "hidden",
     });
   }
 
@@ -765,10 +767,11 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
     intro.to(
       glow,
       {
-        opacity: 0.72,
+        x: 0,
+        y: 0,
         scale: 1,
-        duration: 1.1,
-        clearProps: "willChange",
+        opacity: 0.72,
+        duration: 1.2,
       },
       0
     );
@@ -780,12 +783,11 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
       x: 0,
       y: 0,
       rotation: 0,
-      scale: 0.92,
-      opacity: 0.72,
-      duration: 0.95,
-      ease: "power3.out",
+      scale: 0.985,
+      opacity: 1,
+      duration: 0.8,
       stagger: {
-        each: 0.07,
+        each: 0.06,
         from: "start",
       },
     },
@@ -796,17 +798,22 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
     allPieces,
     {
       scale: 1,
-      opacity: 1,
-      duration: 0.42,
-      ease: "back.out(1.15)",
+      duration: 0.32,
+      ease: "power2.out",
       stagger: {
-        each: 0.05,
+        each: 0.04,
         from: "start",
       },
       clearProps: "willChange",
     },
     0.72
   );
+
+  if (glow) {
+    intro.set(glow, { clearProps: "willChange" }, ">-0.2");
+  }
+
+  return intro;
 };
 /**
  * Hover/parallax-анімація.
