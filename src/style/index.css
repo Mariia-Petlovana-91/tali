@@ -22,7 +22,9 @@
     --dropdown-bg: #121111;
   }
   body {
-    font-family: Xanh Mono, monospace;
+    font-family:
+      Xanh Mono,
+      monospace;
   }
 }
 
@@ -38,10 +40,7 @@
   body::-webkit-scrollbar {
     display: none;
   }
-
 }
 
-
 @layer components {
-
 }
