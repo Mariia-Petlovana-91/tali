@@ -1,8 +1,8 @@
-import gsap from "gsap";
+import gsap from 'gsap';
 
-import type { Piece } from "@/pages/home/components/hero/type";
+import type { Piece } from '@/types/hero';
 
-import { getPointerProgress } from "./helpers";
+import { getPointerProgress } from './helpers';
 
 /**
  * Стартова анімація героя.
@@ -12,15 +12,13 @@ import { getPointerProgress } from "./helpers";
  */
 
 const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
-  const glow = root.querySelector<HTMLElement>("[data-glow]");
-  const allPieces = gsap.utils.toArray<HTMLElement>(
-    root.querySelectorAll("[data-piece]")
-  );
+  const glow = root.querySelector<HTMLElement>('[data-glow]');
+  const allPieces = gsap.utils.toArray<HTMLElement>(root.querySelectorAll('[data-piece]'));
 
   gsap.set(stage, {
     transformPerspective: 1200,
-    transformStyle: "preserve-3d",
-    perspectiveOrigin: "50% 50%",
+    transformStyle: 'preserve-3d',
+    perspectiveOrigin: '50% 50%',
   });
 
   gsap.set(allPieces, {
@@ -29,11 +27,11 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
     rotation: (i) => 4 - i * 0.45,
     scale: 0.94,
     opacity: 0,
-    transformOrigin: "center center",
-    willChange: "transform, opacity",
+    transformOrigin: 'center center',
+    willChange: 'transform, opacity',
     force3D: true,
     z: 0.01,
-    backfaceVisibility: "hidden",
+    backfaceVisibility: 'hidden',
   });
 
   if (glow) {
@@ -42,16 +40,16 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
       y: 18,
       scale: 0.97,
       opacity: 0,
-      transformOrigin: "center center",
-      willChange: "transform, opacity",
+      transformOrigin: 'center center',
+      willChange: 'transform, opacity',
       force3D: true,
       z: 0.01,
-      backfaceVisibility: "hidden",
+      backfaceVisibility: 'hidden',
     });
   }
 
   const intro = gsap.timeline({
-    defaults: { ease: "power3.out" },
+    defaults: { ease: 'power3.out' },
   });
 
   if (glow) {
@@ -64,7 +62,7 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
         opacity: 0.72,
         duration: 1.2,
       },
-      0
+      0,
     );
   }
 
@@ -79,10 +77,10 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
       duration: 0.8,
       stagger: {
         each: 0.06,
-        from: "start",
+        from: 'start',
       },
     },
-    0.04
+    0.04,
   );
 
   intro.to(
@@ -90,23 +88,22 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
     {
       scale: 1,
       duration: 0.32,
-      ease: "power2.out",
+      ease: 'power2.out',
       stagger: {
         each: 0.04,
-        from: "start",
+        from: 'start',
       },
-      clearProps: "willChange",
+      clearProps: 'willChange',
     },
-    0.72
+    0.72,
   );
 
   if (glow) {
-    intro.set(glow, { clearProps: "willChange" }, ">-0.2");
+    intro.set(glow, { clearProps: 'willChange' }, '>-0.2');
   }
 
   return intro;
 };
-
 
 /**
  * Hover/parallax-анімація.
@@ -121,7 +118,6 @@ const animateParallax = (
   pieces: Piece[],
   clientX: number,
   clientY: number,
-
 ) => {
   const { px, py } = getPointerProgress(stage, clientX, clientY);
   const rx = (0.5 - py) * 5;
@@ -133,8 +129,8 @@ const animateParallax = (
     x: (px - 0.5) * 8,
     y: (py - 0.5) * 4,
     duration: 0.45,
-    ease: "power3.out",
-    overwrite: "auto",
+    ease: 'power3.out',
+    overwrite: 'auto',
   });
 
   allPieces.forEach((pieceEl, i) => {
@@ -145,8 +141,8 @@ const animateParallax = (
       y: (py - 0.5) * 10 * depth,
       rotate: (px - 0.5) * 3 * depth,
       duration: 0.5,
-      ease: "power3.out",
-      overwrite: "auto",
+      ease: 'power3.out',
+      overwrite: 'auto',
     });
   });
 
@@ -156,8 +152,8 @@ const animateParallax = (
       y: (py - 0.5) * 8,
       opacity: 0.9,
       duration: 0.45,
-      ease: "power2.out",
-      overwrite: "auto",
+      ease: 'power2.out',
+      overwrite: 'auto',
     });
   }
 };
@@ -166,18 +162,14 @@ const animateParallax = (
  * Повертає сцену та шматки у спокійний стан,
  * коли курсор вийшов за межі hero.
  */
-const resetParallax = (
-  stage: HTMLDivElement,
-  glow: HTMLElement | null,
-  allPieces: HTMLImageElement[]
-) => {
+const resetParallax = (stage: HTMLDivElement, glow: HTMLElement | null, allPieces: HTMLImageElement[]) => {
   gsap.to(stage, {
     rotateX: 0,
     rotateY: 0,
     x: 0,
     y: 0,
     duration: 0.7,
-    ease: "power3.out",
+    ease: 'power3.out',
   });
 
   allPieces.forEach((pieceEl) => {
@@ -186,7 +178,7 @@ const resetParallax = (
       y: 0,
       rotate: 0,
       duration: 0.7,
-      ease: "power3.out",
+      ease: 'power3.out',
     });
   });
 
@@ -196,7 +188,7 @@ const resetParallax = (
       y: 0,
       opacity: 0.75,
       duration: 0.7,
-      ease: "power2.out",
+      ease: 'power2.out',
     });
   }
 };

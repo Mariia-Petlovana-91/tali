@@ -1,4 +1,4 @@
-import type { Piece } from '../pages/home/components/hero/type';
+import type { Piece } from '@/types/hero';
 
 import piece1 from '@/img/Android1.webp';
 import piece2 from '@/img/Android2.webp';

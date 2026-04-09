@@ -1,4 +1,4 @@
-import type { Piece } from "@/pages/home/components/hero/type";
+import type { Piece } from '@/types/hero';
 
 /**
  * Готує canvas-мапу для кожного шматка.
@@ -18,8 +18,10 @@ import type { Piece } from "@/pages/home/components/hero/type";
  * тут тільки технічна підготовка preview-зображень для hit-test.
  */
 const preparePieceCanvasMap = (
-  pieces: Piece[],stageWith: number,stageHeight: number,
-  onReady: (map: Map<number, HTMLCanvasElement>) => void
+  pieces: Piece[],
+  stageWith: number,
+  stageHeight: number,
+  onReady: (map: Map<number, HTMLCanvasElement>) => void,
 ) => {
   const map = new Map<number, HTMLCanvasElement>();
   let loadedCount = 0;
@@ -40,11 +42,11 @@ const preparePieceCanvasMap = (
     img.onload = () => {
       if (cancelled) return;
 
-      const canvas = document.createElement("canvas");
+      const canvas = document.createElement('canvas');
       canvas.width = stageWith;
       canvas.height = stageHeight;
 
-      const ctx = canvas.getContext("2d");
+      const ctx = canvas.getContext('2d');
 
       if (ctx) {
         ctx.clearRect(0, 0, stageWith, stageHeight);
@@ -69,8 +71,6 @@ const preparePieceCanvasMap = (
   };
 };
 
-
-
 /**
  * Перетворює реальні координати курсора на координати нашої сцени 700x840.
  * Це потрібно і для hit-test, і для parallax-руху.
@@ -80,7 +80,7 @@ const getStagePoint = (
   clientX: number,
   clientY: number,
   stageWidth: number,
-  stageHeight: number
+  stageHeight: number,
 ) => {
   const rect = stage.getBoundingClientRect();
 
@@ -104,7 +104,10 @@ const getPieceAtPoint = (
   pieceCanvasMap: Map<number, HTMLCanvasElement>,
   stage: HTMLDivElement,
   clientX: number,
-  clientY: number,stageWidth: number,stageHeight: number,alphaThreshold: number
+  clientY: number,
+  stageWidth: number,
+  stageHeight: number,
+  alphaThreshold: number,
 ) => {
   const { x, y } = getStagePoint(stage, clientX, clientY, stageWidth, stageHeight);
 
@@ -118,7 +121,7 @@ const getPieceAtPoint = (
 
     if (!canvas) continue;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
     if (!ctx) continue;
 
     const pixel = ctx.getImageData(Math.floor(x), Math.floor(y), 1, 1).data;
@@ -132,7 +135,6 @@ const getPieceAtPoint = (
   return null;
 };
 
-
 /**
  * Обчислює відносне положення курсора в межах сцени.
  *
@@ -141,11 +143,7 @@ const getPieceAtPoint = (
  *
  * Це потрібно для hover/parallax-анімації.
  */
-const getPointerProgress = (
-  stage: HTMLDivElement,
-  clientX: number,
-  clientY: number
-) => {
+const getPointerProgress = (stage: HTMLDivElement, clientX: number, clientY: number) => {
   const rect = stage.getBoundingClientRect();
 
   const px = (clientX - rect.left) / rect.width;
