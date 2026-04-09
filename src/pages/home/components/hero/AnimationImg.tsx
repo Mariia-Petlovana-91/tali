@@ -15,7 +15,6 @@ const AnimationImg = () => {
   const pieceCanvasesRef = useRef<Map<number, HTMLCanvasElement>>(new Map());
   const dispatch = useDispatch();
   const activeModal = useSelector(selectActiveModal);
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [assetsReady, setAssetsReady] = useState(false);
 
   useEffect(() => {
@@ -62,7 +61,6 @@ const AnimationImg = () => {
       };
 
       const onMouseLeave = () => {
-        setHoveredId(null);
         resetParallax(stage, glow, allPieces);
       };
 
@@ -77,8 +75,8 @@ const AnimationImg = () => {
 
     return () => ctx.revert();
   }, [activeModal]);
-  const hoveredIdRef = useRef<number | null>(null);
-  const handleStageMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+
+  const handleStageClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!assetsReady || activeModal || !stageRef.current) return;
 
     const piece = getPieceAtPoint(
@@ -92,39 +90,14 @@ const AnimationImg = () => {
       ALPHA_THRESHOLD,
     );
 
-    const nextId = piece?.id ?? null;
-
-    if (hoveredIdRef.current !== nextId) {
-      hoveredIdRef.current = nextId;
-      setHoveredId(nextId);
-    }
-  };
-
-  const handleStageClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!assetsReady || activeModal) return;
-
-    if (!stageRef.current) return;
-
-    const piece = getPieceAtPoint(
-      PIECES,
-      pieceCanvasesRef.current,
-      stageRef.current,
-      e.clientX,
-      e.clientY,
-      STAGE_WIDTH,
-      STAGE_HEIGHT,
-      ALPHA_THRESHOLD,
-    );
-
     if (!piece) return;
-    console.log('clicked');
+
     dispatch(
       openPopup({
         type: 'HERO_IMAGE',
         props: { piece },
       }),
     );
-    console.log('dispatched');
   };
 
   return (
@@ -134,7 +107,6 @@ const AnimationImg = () => {
           ref={stageRef}
           data-stage
           onClick={handleStageClick}
-          onMouseMove={handleStageMouseMove}
           className={`relative w-full max-w-[700px] aspect-[700/840] justify-self-end overflow-visible transition-opacity duration-500 ${
             assetsReady ? 'opacity-100' : 'opacity-0'
           } ${activeModal ? 'pointer-events-none' : 'cursor-pointer'}`}
@@ -155,9 +127,7 @@ const AnimationImg = () => {
               draggable={false}
               width={700}
               height={840}
-              className={`absolute inset-0 h-full w-full object-contain select-none pointer-events-none transition-opacity duration-200 ${
-                hoveredId && hoveredId !== piece.id ? 'opacity-75' : 'opacity-100'
-              } [filter:drop-shadow(0_0_14px_rgba(255,220,140,0.04))_drop-shadow(0_0_36px_rgba(255,200,90,0.05))]`}
+              className="absolute inset-0 h-full w-full object-contain select-none pointer-events-none [filter:drop-shadow(0_0_14px_rgba(255,220,140,0.04))_drop-shadow(0_0_36px_rgba(255,200,90,0.05))]"
             />
           ))}
         </div>

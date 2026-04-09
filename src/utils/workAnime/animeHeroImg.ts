@@ -22,45 +22,41 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
   });
 
   gsap.set(allPieces, {
-    x: (i) => 64 + i * 10,
-    y: (i) => 42 + i * 8,
-    rotation: (i) => 4 - i * 0.45,
-    scale: 0.94,
-    opacity: 0,
+    y: 8,
+    scale: 0.988,
+    rotation: (i) => (i % 2 === 0 ? 0.8 : -0.8),
     transformOrigin: 'center center',
-    willChange: 'transform, opacity',
     force3D: true,
-    z: 0.01,
+
     backfaceVisibility: 'hidden',
+    willChange: 'transform',
   });
 
   if (glow) {
     gsap.set(glow, {
-      x: 18,
-      y: 18,
-      scale: 0.97,
-      opacity: 0,
+      scale: 0.992,
+      y: 4,
       transformOrigin: 'center center',
-      willChange: 'transform, opacity',
       force3D: true,
-      z: 0.01,
+
       backfaceVisibility: 'hidden',
+      willChange: 'transform',
     });
   }
 
   const intro = gsap.timeline({
-    defaults: { ease: 'power3.out' },
+    defaults: {
+      ease: 'expo.out',
+    },
   });
 
   if (glow) {
     intro.to(
       glow,
       {
-        x: 0,
         y: 0,
         scale: 1,
-        opacity: 0.72,
-        duration: 1.2,
+        duration: 0.9,
       },
       0,
     );
@@ -69,37 +65,21 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
   intro.to(
     allPieces,
     {
-      x: 0,
       y: 0,
-      rotation: 0,
-      scale: 0.985,
-      opacity: 1,
-      duration: 0.8,
-      stagger: {
-        each: 0.06,
-        from: 'start',
-      },
-    },
-    0.04,
-  );
-
-  intro.to(
-    allPieces,
-    {
       scale: 1,
-      duration: 0.32,
-      ease: 'power2.out',
+      rotation: 0,
+      duration: 0.95,
       stagger: {
-        each: 0.04,
+        each: 0.025,
         from: 'start',
       },
       clearProps: 'willChange',
     },
-    0.72,
+    0.02,
   );
 
   if (glow) {
-    intro.set(glow, { clearProps: 'willChange' }, '>-0.2');
+    intro.set(glow, { clearProps: 'willChange' }, '>-0.1');
   }
 
   return intro;
@@ -111,6 +91,8 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
  * Це окрема анімація, яка реагує на рух миші.
  * Працює тільки коли модалка закрита.
  */
+let hasEnteredStage = false;
+
 const animateParallax = (
   stage: HTMLDivElement,
   glow: HTMLElement | null,
@@ -120,56 +102,88 @@ const animateParallax = (
   clientY: number,
 ) => {
   const { px, py } = getPointerProgress(stage, clientX, clientY);
-  const rx = (0.5 - py) * 5;
-  const ry = (px - 0.5) * 7;
 
   gsap.to(stage, {
-    rotateX: rx,
-    rotateY: ry,
-    x: (px - 0.5) * 8,
-    y: (py - 0.5) * 4,
-    duration: 0.45,
-    ease: 'power3.out',
-    overwrite: 'auto',
+    rotateX: (0.5 - py) * 2,
+    rotateY: (px - 0.5) * 2.4,
+    x: (px - 0.5) * 3,
+    y: (py - 0.5) * 2,
+    duration: hasEnteredStage ? 0.3 : 0.45,
+    ease: 'power2.out',
+    overwrite: true,
+    transformPerspective: 1000,
+    transformOrigin: 'center center',
+  });
+
+  let activeIndex = -1;
+  let minDistance = Infinity;
+
+  allPieces.forEach((pieceEl, i) => {
+    const rect = pieceEl.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = clientX - cx;
+    const dy = clientY - cy;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance < minDistance) {
+      minDistance = distance;
+      activeIndex = i;
+    }
   });
 
   allPieces.forEach((pieceEl, i) => {
     const depth = pieces[i]?.depth ?? 0.5;
+    const isActive = i === activeIndex;
+
+    let extraX = 0;
+    let extraY = 0;
+
+    if (isActive) {
+      const rect = pieceEl.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+
+      extraX = (clientX - cx) * 0.015;
+      extraY = (clientY - cy) * 0.015;
+    }
 
     gsap.to(pieceEl, {
-      x: (px - 0.5) * 16 * depth,
-      y: (py - 0.5) * 10 * depth,
-      rotate: (px - 0.5) * 3 * depth,
-      duration: 0.5,
-      ease: 'power3.out',
-      overwrite: 'auto',
+      x: (px - 0.5) * 6 * depth + extraX,
+      y: (py - 0.5) * 4 * depth + extraY,
+      rotate: (px - 0.5) * 0.6 * depth,
+      scale: 1,
+      duration: hasEnteredStage ? 0.28 : 0.4,
+      ease: 'power2.out',
+      overwrite: true,
+      transformOrigin: 'center center',
     });
   });
 
   if (glow) {
     gsap.to(glow, {
-      x: (px - 0.5) * 10,
-      y: (py - 0.5) * 8,
-      opacity: 0.9,
-      duration: 0.45,
+      x: (px - 0.5) * 5,
+      y: (py - 0.5) * 4,
+      duration: hasEnteredStage ? 0.3 : 0.45,
       ease: 'power2.out',
-      overwrite: 'auto',
+      overwrite: true,
     });
   }
+
+  hasEnteredStage = true;
 };
 
-/**
- * Повертає сцену та шматки у спокійний стан,
- * коли курсор вийшов за межі hero.
- */
 const resetParallax = (stage: HTMLDivElement, glow: HTMLElement | null, allPieces: HTMLImageElement[]) => {
+  hasEnteredStage = false;
+
   gsap.to(stage, {
     rotateX: 0,
     rotateY: 0,
     x: 0,
     y: 0,
-    duration: 0.7,
-    ease: 'power3.out',
+    duration: 0.55,
+    ease: 'power2.out',
+    overwrite: true,
   });
 
   allPieces.forEach((pieceEl) => {
@@ -177,8 +191,10 @@ const resetParallax = (stage: HTMLDivElement, glow: HTMLElement | null, allPiece
       x: 0,
       y: 0,
       rotate: 0,
-      duration: 0.7,
-      ease: 'power3.out',
+      scale: 1,
+      duration: 0.45,
+      ease: 'power2.out',
+      overwrite: true,
     });
   });
 
@@ -186,9 +202,9 @@ const resetParallax = (stage: HTMLDivElement, glow: HTMLElement | null, allPiece
     gsap.to(glow, {
       x: 0,
       y: 0,
-      opacity: 0.75,
-      duration: 0.7,
+      duration: 0.45,
       ease: 'power2.out',
+      overwrite: true,
     });
   }
 };
