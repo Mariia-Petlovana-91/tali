@@ -30,10 +30,6 @@ const AnimationImg = () => {
   useLayoutEffect(() => {
     if (!rootRef.current || !stageRef.current) return;
 
-    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
-
-    if (!isFinePointer) return;
-
     const root = rootRef.current;
     const stage = stageRef.current;
 
