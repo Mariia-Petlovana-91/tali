@@ -1,38 +1,62 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { VscClose } from 'react-icons/vsc';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { closePopup } from '@/redux/popup/slice';
 import { selectActiveModal, selectIsOpen } from '@/redux/popup/selectors';
 
 import { useEscapeHook } from '@/hooks/useEscapeHook';
-import { useScrollLock } from '@/hooks/useScrollLookHook';
+import { useScrollLooc } from '@/hooks/useScrollLoocHook';
 import HeroImgModal from '@/pages/home/components/hero/HeroImgModal';
 
-const Popap = () => {
+const Popup = () => {
   const isOpen = useSelector(selectIsOpen);
   const activeModal = useSelector(selectActiveModal);
   const dispatch = useDispatch();
-  useEscapeHook(() => dispatch(closePopup()));
-  useScrollLock(isOpen);
 
-  if (!isOpen || !activeModal) return null;
+  const handleClose = () => dispatch(closePopup());
+
+  useEscapeHook(() => {
+    if (isOpen) handleClose();
+  });
+
+  useScrollLooc(isOpen);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-      onClick={() => dispatch(closePopup())}
-    >
-      <button
-        aria-label="Close popup"
-        onClick={() => dispatch(closePopup())}
-        className="absolute top-2 right-3 cursor-pointer text-[#f3f3f3] transition-colors duration-300 hover:text-secondary-cyan focus:text-secondary-cyan focus:outline-none"
-      >
-        <VscClose />
-      </button>
+    <AnimatePresence mode="wait">
+      {isOpen && activeModal && (
+        <motion.div
+          key={activeModal.type}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          onClick={handleClose}
+        >
+          <button
+            aria-label="Close popup"
+            onClick={handleClose}
+            className="absolute top-10 right-10 icon-btn group"
+          >
+            <VscClose className="icon" />
+          </button>
 
-      {activeModal.type === 'HERO_IMAGE' && <HeroImgModal {...activeModal.props} />}
-    </div>
+          <motion.div
+            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0, y: 20, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.96 }}
+            transition={{ duration: 0.35 }}
+          >
+            {activeModal.type === 'HERO_IMAGE' && (
+              <HeroImgModal {...activeModal.props} />
+            )}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
-export default Popap;
+export default Popup;

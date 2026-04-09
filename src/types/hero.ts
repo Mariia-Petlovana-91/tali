@@ -1,3 +1,5 @@
+import { type RefObject } from 'react';
+
 export type Piece = {
   id: number;
   preview: string;
@@ -5,4 +7,15 @@ export type Piece = {
   depth: number;
   alt: string;
   text?: string;
+};
+
+export type UseHeroParallaxParams = {
+  rootRef: RefObject<HTMLDivElement | null>;
+  stageRef: RefObject<HTMLDivElement | null>;
+  disabled: boolean;
+};
+
+export type UseHeroIntroParams = {
+  rootRef: RefObject<HTMLDivElement | null>;
+  stageRef: RefObject<HTMLDivElement | null>;
 };
