@@ -1,18 +1,20 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import gsap from 'gsap';
 
-import type { Piece } from './type';
 import { preparePieceCanvasMap, getPieceAtPoint } from '@/utils/workAnime/helpers';
 import { animateIntro, animateParallax, resetParallax } from '@/utils/workAnime/animeHeroImg';
 import { STAGE_WIDTH, STAGE_HEIGHT, ALPHA_THRESHOLD, PIECES } from '@/constants/uiConst';
 
-import ModelImgHero from './ModalImgHero';
+import { openPopup } from '@/redux/popup/slice';
+import { selectActiveModal } from '@/redux/popup/selectors';
 
 const AnimationImg = () => {
   const rootRef = useRef<HTMLDivElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
   const pieceCanvasesRef = useRef<Map<number, HTMLCanvasElement>>(new Map());
-  const [activePiece, setActivePiece] = useState<Piece | null>(null);
+  const dispatch = useDispatch();
+  const activeModal = useSelector(selectActiveModal);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [assetsReady, setAssetsReady] = useState(false);
 
@@ -58,7 +60,7 @@ const AnimationImg = () => {
       });
 
       const onMouseMove = (e: MouseEvent) => {
-        if (activePiece) return;
+        if (activeModal) return;
 
         animateParallax(stage, glow, allPieces, PIECES, e.clientX, e.clientY);
       };
@@ -78,10 +80,10 @@ const AnimationImg = () => {
     }, rootRef);
 
     return () => ctx.revert();
-  }, [activePiece]);
+  }, [activeModal]);
   const hoveredIdRef = useRef<number | null>(null);
   const handleStageMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!assetsReady || activePiece || !stageRef.current) return;
+    if (!assetsReady || activeModal || !stageRef.current) return;
 
     const piece = getPieceAtPoint(
       PIECES,
@@ -103,7 +105,7 @@ const AnimationImg = () => {
   };
 
   const handleStageClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!assetsReady || activePiece) return;
+    if (!assetsReady || activeModal) return;
 
     if (!stageRef.current) return;
 
@@ -119,8 +121,14 @@ const AnimationImg = () => {
     );
 
     if (!piece) return;
-
-    setActivePiece(piece);
+    console.log('clicked');
+    dispatch(
+      openPopup({
+        type: 'HERO_IMAGE',
+        props: { piece },
+      }),
+    );
+    console.log('dispatched');
   };
 
   return (
@@ -133,7 +141,7 @@ const AnimationImg = () => {
           onMouseMove={handleStageMouseMove}
           className={`relative w-full max-w-[700px] aspect-[700/840] justify-self-end overflow-visible transition-opacity duration-500 ${
             assetsReady ? 'opacity-100' : 'opacity-0'
-          } ${activePiece ? 'pointer-events-none' : 'cursor-pointer'}`}
+          } ${activeModal ? 'pointer-events-none' : 'cursor-pointer'}`}
         >
           <div
             data-glow
@@ -158,8 +166,6 @@ const AnimationImg = () => {
           ))}
         </div>
       </div>
-
-      <ModelImgHero price={activePiece} setActivePiece={setActivePiece} />
 
       {!assetsReady && <div className="pointer-events-none absolute opacity-0" aria-hidden="true" />}
     </>

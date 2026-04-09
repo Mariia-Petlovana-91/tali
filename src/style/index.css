@@ -3,32 +3,25 @@
 
 @layer base {
   :root {
-    --bg: #f6f6f6;
-    --text: #010101;
-    --bg-btn: #1d1d1d;
-    --text-btn: #f6f6f6;
-    --primary-grey: #5d5a5a;
-    --secondary-grey: #938b8b;
-    --dropdown-bg: #120f0f;
+    --bg: #bfaf9b;
+    --text: #101010;
+    --text-accent: #a9834e;
+    --bg-btn: #140d0a;
+    --text-btn: #f3efef;
+    --primary: #bfaf9b;
+    /*
+    #C6A86B
+    #B9975B
+    */
   }
 
   .dark {
-    --bg: #1a1a1a;
-    --text: #3f7b9c;
-    --bg-btn: #f6f6f6;
+    --bg: #140d0a;
+    --text: #f3efef;
+    --bg-btn: #bfaf9b;
     --text-btn: #010101;
-    --primary-grey: #bbb7b7;
-    --secondary-grey: #f6f6f6;
-    --dropdown-bg: #121111;
   }
-  body {
-    font-family:
-      Xanh Mono,
-      monospace;
-  }
-}
 
-@layer base {
   html,
   body {
     @apply m-0 overflow-x-hidden overflow-y-auto;
@@ -40,7 +33,29 @@
   body::-webkit-scrollbar {
     display: none;
   }
+
+  body {
+    font-family: 'Roboto Serif';
+  }
 }
 
 @layer components {
+  .btn {
+    @apply min-w-[130px] rounded-xl bg-bg-btn p-[8px] text-sm font-semibold text-text-btn
+      cursor-pointer transition-all duration-300
+      hover:shadow-[0_10px_30px_rgba(20,13,10,0.28),0_0_12px_rgba(198,168,107,0.16)]
+      focus:shadow-[0_10px_30px_rgba(20,13,10,0.28),0_0_12px_rgba(198,168,107,0.16)]
+      focus:outline-none;
+  }
+
+  .icon-btn {
+    @apply inline-flex items-center justify-center cursor-pointer focus-visible:outline-none;
+  }
+
+  .icon {
+    @apply text-xl text-text-btn transition-colors duration-300
+      md:text-2xl
+      group-hover:text-text-accent
+      group-focus:text-text-accent;
+  }
 }

@@ -6,8 +6,3 @@ export type Piece = {
   alt: string;
   text?: string;
 };
-
-export type ModelImgHeroProps = {
-  price: Piece | null;
-  setActivePiece: (piece: Piece | null) => void;
-};

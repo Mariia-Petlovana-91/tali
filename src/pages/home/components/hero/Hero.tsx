@@ -1,9 +1,11 @@
-import  AnimationImg from "./AnimationImg";
+import AnimationImg from './AnimationImg';
 
-const Hero = () => { return (  
-    <div className="bg-[#140D0A]">
-      <AnimationImg/>
-      </div>  
-   )}
+const Hero = () => {
+  return (
+    <div className="bg-bg">
+      <AnimationImg />
+    </div>
+  );
+};
 
-      export default Hero;
+export default Hero;
