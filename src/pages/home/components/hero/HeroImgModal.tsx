@@ -3,24 +3,21 @@ import type { HeroImgModalProps } from '@/types/popup';
 const HeroImgModal = ({ piece }: HeroImgModalProps) => {
   return (
     <div
-      className="relative w-full md:max-w-[600px] max-h-[70vh] flex flex-col border border-white bg-black"
+      className="relative w-full md:max-w-[800px] max-h-[90vh] p-4 md:p-8 rounded-lg bg-bg overflow-auto no-scrollbar"
       onClick={(e) => e.stopPropagation()}
     >
       {piece && (
         <>
-          <div className="shrink-0 p-4 max-h-[25vh] overflow-y-hidden">
-            <p className="text-white">{piece.text}</p>
-          </div>
-
-          <div className="flex-1 min-h-0 flex items-center justify-center p-4 overflow-hidden">
-            <img
-              src={piece.full}
-              alt={piece.alt}
-              draggable={false}
-              className="block max-w-full max-h-full w-auto h-auto rounded-xl object-contain"
-            />
-          </div>
-          <button type="button" className="shrink-0 rounded-lg border border-white/30 px-3 py-1.5 text-sm text-white">
+          <img
+            src={piece.full}
+            alt={piece.alt}
+            draggable={false}
+            className="block w-[30%] h-[20%] block rounded-xl object-cover mx-auto mb-4"
+          />
+          <p className="text-text-theme text-xs mb-4 md:text-sm max-h-[100px] md:max-h-[200px] overflow-auto no-scrollbar">
+            {piece.text}
+          </p>
+          <button type="button" className="btn  w-full">
             Закрити
           </button>
         </>

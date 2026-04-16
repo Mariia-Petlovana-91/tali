@@ -6,7 +6,7 @@ import { closePopup } from '@/redux/popup/slice';
 import { selectActiveModal, selectIsOpen } from '@/redux/popup/selectors';
 
 import { useEscapeHook } from '@/hooks/useEscapeHook';
-import { useScrollLooc } from '@/hooks/useScrollLoocHook';
+import { useScrollLock } from '@/hooks/useScrollLockHook';
 import HeroImgModal from '@/pages/home/components/hero/HeroImgModal';
 
 const Popup = () => {
@@ -20,28 +20,20 @@ const Popup = () => {
     if (isOpen) handleClose();
   });
 
-  useScrollLooc(isOpen);
+  useScrollLock(isOpen);
 
   return (
     <AnimatePresence mode="wait">
       {isOpen && activeModal && (
         <motion.div
           key={activeModal.type}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-start md:items-center justify-center md:justify-center bg-black/80 backdrop-blur-md p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           onClick={handleClose}
         >
-          <button
-            aria-label="Close popup"
-            onClick={handleClose}
-            className="absolute top-10 right-10 icon-btn group"
-          >
-            <VscClose className="icon" />
-          </button>
-
           <motion.div
             onClick={(e) => e.stopPropagation()}
             initial={{ opacity: 0, y: 20, scale: 0.96 }}
@@ -49,9 +41,17 @@ const Popup = () => {
             exit={{ opacity: 0, y: 20, scale: 0.96 }}
             transition={{ duration: 0.35 }}
           >
-            {activeModal.type === 'HERO_IMAGE' && (
-              <HeroImgModal {...activeModal.props} />
-            )}
+            <button
+              aria-label="Close popup"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleClose();
+              }}
+              className="block ml-auto mb-4 icon-btn group"
+            >
+              <VscClose className="icon" />
+            </button>
+            {activeModal.type === 'HERO_IMAGE' && <HeroImgModal {...activeModal.props} />}
           </motion.div>
         </motion.div>
       )}

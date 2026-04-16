@@ -7,11 +7,12 @@ const config: Config = {
     extend: {
       colors: {
         bg: 'var(--bg)',
-        text: 'var(--text)',
-        'text-accent': 'var(--text-accent)',
+        'text-theme': 'var(--text-theme)',
+        accent: 'var(--accent)',
         'bg-btn': 'var(--bg-btn)',
         'text-btn': 'var(--text-btn)',
         primary: 'var(--primary)',
+        kakao: 'var(--kakao)',
       },
       keyframes: {},
 
