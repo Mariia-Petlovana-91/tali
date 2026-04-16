@@ -1,6 +1,7 @@
 import type { Piece } from './hero';
 export type HeroImgModalProps = {
   piece: Piece;
+  onNavigate: () => void;
 };
 
 export type PopupItem = {

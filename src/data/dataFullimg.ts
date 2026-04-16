@@ -18,6 +18,7 @@ const piece: Piece[] = [
     depth: 0.35,
     alt: 'piece1',
     text: 'hero.modalText.1',
+    link: 'services',
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ const piece: Piece[] = [
     depth: 0.55,
     alt: 'piece2',
     text: 'hero.modalText.2',
+    link: 'about-me',
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const piece: Piece[] = [
     depth: 0.75,
     alt: 'piece3',
     text: 'hero.modalText.3',
+    link: 'profile',
   },
   {
     id: 4,
@@ -42,6 +45,7 @@ const piece: Piece[] = [
     depth: 0.45,
     alt: 'piece4',
     text: 'hero.modalText.4',
+    link: 'profile',
   },
   {
     id: 5,
@@ -50,6 +54,7 @@ const piece: Piece[] = [
     depth: 0.95,
     alt: 'piece5',
     text: 'hero.modalText.5',
+    link: 'profile',
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ const piece: Piece[] = [
     depth: 0.6,
     alt: 'piece6',
     text: 'hero.modalText.6',
+    link: 'profile',
   },
   {
     id: 7,
@@ -66,6 +72,7 @@ const piece: Piece[] = [
     depth: 0.4,
     alt: 'piece7',
     text: 'hero.modalText.7',
+    link: 'profile',
   },
   {
     id: 8,
@@ -74,6 +81,7 @@ const piece: Piece[] = [
     depth: 0.7,
     alt: 'piece8',
     text: 'hero.modalText.8',
+    link: 'profile',
   },
   {
     id: 9,
@@ -82,6 +90,7 @@ const piece: Piece[] = [
     depth: 0.5,
     alt: 'piece9',
     text: 'hero.modalText.9',
+    link: 'profile',
   },
 ];
 

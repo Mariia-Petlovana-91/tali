@@ -51,7 +51,7 @@ const Popup = () => {
             >
               <VscClose className="icon" />
             </button>
-            {activeModal.type === 'HERO_IMAGE' && <HeroImgModal {...activeModal.props} />}
+            {activeModal.type === 'HERO_IMAGE' && <HeroImgModal {...activeModal.props} onNavigate={handleClose} />}
           </motion.div>
         </motion.div>
       )}

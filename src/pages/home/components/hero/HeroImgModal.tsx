@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 import type { HeroImgModalProps } from '@/types/popup';
 
-const HeroImgModal = ({ piece }: HeroImgModalProps) => {
+const HeroImgModal = ({ piece, onNavigate }: HeroImgModalProps) => {
   const { t } = useTranslation();
   return (
     <div
@@ -20,9 +21,9 @@ const HeroImgModal = ({ piece }: HeroImgModalProps) => {
           <p className="text-text-theme text-xs mb-4 md:text-sm max-h-[100px] md:max-h-[200px] overflow-auto no-scrollbar">
             {t(piece?.text ?? '')}
           </p>
-          <button type="button" className="btn  w-full">
+          <NavLink to={piece?.link ?? ''} onClick={onNavigate} className="btn text-center w-full">
             {t('btn.heroImgModal')}
-          </button>
+          </NavLink>
         </>
       )}
     </div>

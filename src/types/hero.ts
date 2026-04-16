@@ -7,6 +7,7 @@ export type Piece = {
   depth: number;
   alt: string;
   text?: string;
+  link: string;
 };
 
 export type UseHeroParallaxParams = {

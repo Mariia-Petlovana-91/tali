@@ -48,7 +48,7 @@
 
 @layer components {
   .btn {
-    @apply min-w-[130px] rounded-lg bg-bg-btn p-[8px] text-sm font-semibold text-text-btn
+    @apply min-w-[130px] rounded-lg bg-bg-btn p-[8px] text-sm font-semibold text-text-btn block
       cursor-pointer transition-all duration-500
       hover:shadow-[0_10px_30px_rgba(20,13,10,0.28),0_0_12px_rgba(198,168,107,0.16)] hover:bg-accent
       focus:shadow-[0_10px_30px_rgba(20,13,10,0.28),0_0_12px_rgba(198,168,107,0.16)] focus:bg-accent
