@@ -1,14 +1,14 @@
 import type { Piece } from '@/types/hero';
 
-import piece1 from '@/img/Android1.webp';
-import piece2 from '@/img/Android2.webp';
-import piece3 from '@/img/Android3.webp';
-import piece4 from '@/img/Android4.webp';
-import piece5 from '@/img/Android5.webp';
-import piece6 from '@/img/Android6.webp';
-import piece7 from '@/img/Android7.webp';
-import piece8 from '@/img/Android8.webp';
-import piece9 from '@/img/Android9.webp';
+import piece1 from '@/img/hero/Android1.webp';
+import piece2 from '@/img/hero/Android2.webp';
+import piece3 from '@/img/hero/Android3.webp';
+import piece4 from '@/img/hero/Android4.webp';
+import piece5 from '@/img/hero/Android5.webp';
+import piece6 from '@/img/hero/Android6.webp';
+import piece7 from '@/img/hero/Android7.webp';
+import piece8 from '@/img/hero/Android8.webp';
+import piece9 from '@/img/hero/Android9.webp';
 
 const piece: Piece[] = [
   {

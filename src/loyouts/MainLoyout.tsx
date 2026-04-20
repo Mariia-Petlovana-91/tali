@@ -1,12 +1,13 @@
 import { Outlet } from 'react-router-dom';
+import { Container } from '@/shared/ui';
 
 const MainLoyout = () => {
   return (
     <div>
       <header>Header</header>
-
-      <Outlet />
-
+      <Container>
+        <Outlet />
+      </Container>
       <footer>Footer</footer>
     </div>
   );

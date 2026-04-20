@@ -7,7 +7,7 @@ import { selectActiveModal, selectIsOpen } from '@/redux/popup/selectors';
 
 import { useEscapeHook } from '@/hooks/useEscapeHook';
 import { useScrollLock } from '@/hooks/useScrollLockHook';
-import HeroImgModal from '@/pages/home/components/hero/HeroImgModal';
+import { HeroImgModal } from '@/pages/home/components/hero';
 
 const Popup = () => {
   const isOpen = useSelector(selectIsOpen);

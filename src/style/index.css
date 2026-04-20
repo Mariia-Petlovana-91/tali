@@ -10,6 +10,7 @@
     --text-btn: #bfaf9b;
     --primary: #140d0a;
     --kakao: #bfaf9b;
+    --bg-hero: #140d0a;
     /*
     #C6A86B
     #B9975B
@@ -22,6 +23,7 @@
     --bg-btn: #bfaf9b;
     --text-btn: #140d0a;
     --primary: #bfaf9b;
+    --bg-hero: #bfaf9b;
   }
 
   html,
@@ -34,6 +36,10 @@
   html::-webkit-scrollbar,
   body::-webkit-scrollbar {
     display: none;
+  }
+
+  body {
+    @apply bg-bg;
   }
 
   html.no-scroll,

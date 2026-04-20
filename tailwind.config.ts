@@ -13,6 +13,7 @@ const config: Config = {
         'text-btn': 'var(--text-btn)',
         primary: 'var(--primary)',
         kakao: 'var(--kakao)',
+        'bg-hero': 'var(--bg-hero)',
       },
       keyframes: {},
 

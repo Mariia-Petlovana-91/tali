@@ -1,8 +1,10 @@
 import AnimationImg from './AnimationImg';
+import HeroInfo from './HeroInfo';
 
 const Hero = () => {
   return (
-    <div className="bg-bg">
+    <div className="xl:flex md:flex-row ">
+      <HeroInfo />
       <AnimationImg />
     </div>
   );

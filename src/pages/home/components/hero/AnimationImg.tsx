@@ -51,22 +51,25 @@ const AnimationImg = () => {
   };
 
   return (
-    <div ref={rootRef} className="inset-0 p-2 md:p-4 lg:p-6">
+    <div
+      ref={rootRef}
+      className="w-full xl:w-1/2 shrink-0 w-full lg:max-w-[640px] overflow-hidden mx-auto xl:ml-auto xl:mr-0  p-6"
+    >
       <div
         ref={stageRef}
         onClick={handleStageClick}
-        className={`relative w-full max-w-[700px] aspect-[700/840] justify-self-end overflow-visible transition-opacity duration-500 ${
+        className={`relative w-full  aspect-[700/840]  overflow-hidden transition-opacity duration-500 ${
           assetsReady ? 'opacity-100' : 'opacity-0'
         } ${activeModal ? 'pointer-events-none' : 'cursor-pointer'}`}
       >
-        <div data-glow className="absolute inset-0 pointer-events-none rounded-[32px]" />
+        <div data-glow className="absolute inset-0 pointer-events-none rounded-lg" />
 
         {PIECES.map((piece) => (
           <img
             key={piece.id}
             data-piece
             src={piece.preview}
-            alt=""
+            alt="all pieces"
             draggable={false}
             width={700}
             height={840}
