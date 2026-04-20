@@ -7,7 +7,7 @@ const HeroImgModal = ({ piece, onNavigate }: HeroImgModalProps) => {
   const { t } = useTranslation();
   return (
     <div
-      className="relative w-full md:max-w-[800px] max-h-[90vh] p-4 md:p-8 rounded-lg bg-bg overflow-auto no-scrollbar"
+      className="relative w-full md:max-w-[800px] h-[90vh] p-4 md:p-8 rounded-lg bg-bg overflow-auto no-scrollbar flex flex-col text-center justify-around "
       onClick={(e) => e.stopPropagation()}
     >
       {piece && (
@@ -16,11 +16,9 @@ const HeroImgModal = ({ piece, onNavigate }: HeroImgModalProps) => {
             src={piece.full}
             alt={piece.alt}
             draggable={false}
-            className="block w-[30%] h-[20%] block rounded-xl object-cover mx-auto mb-4"
+            className="block w-[50%] h-auto md:h-[500px] block rounded-xl object-cover mx-auto mb-4"
           />
-          <p className="text-text-theme text-xs mb-4 md:text-sm max-h-[100px] md:max-h-[200px] overflow-auto no-scrollbar">
-            {t(piece?.text ?? '')}
-          </p>
+          <p className="text-text-theme text-xs mb-4 md:text-sm  overflow-auto no-scrollbar">{t(piece?.text ?? '')}</p>
           <NavLink to={piece?.link ?? ''} onClick={onNavigate} className="btn text-center w-full">
             {t('btn.heroImgModal')}
           </NavLink>

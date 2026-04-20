@@ -16,6 +16,8 @@ const HeroInfo = () => {
           alt="TALIA 2.KO Main hero image"
           loading="eager"
           decoding="async"
+          width={100}
+          height={50}
         />
       </picture>
       <p className="text-center text-text-theme font-semibold text-xs  md:text-lg">{t('hero.description')}</p>

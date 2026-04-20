@@ -6,7 +6,9 @@ const MainLoyout = () => {
     <div>
       <header>Header</header>
       <Container>
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
       </Container>
       <footer>Footer</footer>
     </div>
