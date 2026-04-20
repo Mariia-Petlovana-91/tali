@@ -10,9 +10,9 @@ i18n
 
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en',
+    fallbackLng: 'pl',
 
-    supportedLngs: ['en', 'pl', 'ua'],
+    supportedLngs: ['pl', 'ua'],
     nonExplicitSupportedLngs: true,
     load: 'languageOnly',
 
