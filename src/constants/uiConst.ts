@@ -1,12 +1,12 @@
-import piece from "@/data/dataFullimg";
+import piece from '@/data/dataFullimg';
 
 /**
  * Базові розміри сцени.
  * Це координатна система, в якій ми перевіряємо кліки по alpha-каналу.
  * Всі шматки зведені до цього розміру.
  */
-export const STAGE_WIDTH = 700;
-export const STAGE_HEIGHT = 840;
+export const STAGE_WIDTH = 400;
+export const STAGE_HEIGHT = 400;
 /**
  * Поріг прозорості.
  * Якщо alpha пікселя більше цього значення — вважаємо, що клік був по шматку.

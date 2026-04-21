@@ -51,14 +51,11 @@ const AnimationImg = () => {
   };
 
   return (
-    <div
-      ref={rootRef}
-      className="w-full xl:w-1/2 shrink-0 w-full lg:max-w-[640px] overflow-hidden mx-auto xl:ml-auto xl:mr-0  p-6"
-    >
+    <div ref={rootRef} className="w-full xl:w-1/2 shrink-0 w-full  overflow-hidden mx-auto xl:ml-auto xl:mr-0 ">
       <div
         ref={stageRef}
         onClick={handleStageClick}
-        className={`relative w-full  aspect-[700/840]  overflow-hidden transition-opacity duration-500 ${
+        className={`relative w-full aspect-[1/1] overflow-hidden transition-opacity duration-500 ${
           assetsReady ? 'opacity-100' : 'opacity-0'
         } ${activeModal ? 'pointer-events-none' : 'cursor-pointer'}`}
       >
@@ -71,9 +68,9 @@ const AnimationImg = () => {
             src={piece.preview}
             alt="all pieces"
             draggable={false}
-            width={700}
-            height={840}
-            className="absolute inset-0 h-full w-full object-contain select-none pointer-events-none"
+            width={500}
+            height={500}
+            className="absolute inset-0 h-full w-full object-cover select-none pointer-events-none"
           />
         ))}
       </div>
