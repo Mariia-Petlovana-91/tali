@@ -3,15 +3,15 @@ import { Container } from '@/shared/ui';
 
 const MainLoyout = () => {
   return (
-    <div>
+    <Container>
       <header>Header</header>
-      <Container>
-        <main>
-          <Outlet />
-        </main>
-      </Container>
+
+      <main>
+        <Outlet />
+      </main>
+
       <footer>Footer</footer>
-    </div>
+    </Container>
   );
 };
 
