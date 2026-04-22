@@ -6,25 +6,28 @@ import nameMob from '@/img/hero/nameMob.png';
 const HeroInfo = () => {
   const { t } = useTranslation();
   return (
-    <div className=" w-full mb-4 md:mb-6 xl:w-1/2 xl:pr-6 xl:mb-0 flex flex-col items-center justify-between text-center gap-4  md:gap-8 lg:gap-16">
+    <div
+      className="border border-[2px] border-red w-full mb-[16px] lg:pr-[16px]
+    xl:mb-[0px] xl:flex xl:flex-col item-center justify-center"
+    >
       <h1 className="hidden">TALIA 2.KO</h1>
-      <div className="w-full rounded-tl-[90px] rounded-br-[90px] border border-kakao bg-[radial-gradient(circle_at_top,_#4f4238_0%,_#281914_38%,_#140d0a_84%)]">
-        <picture>
-          <source media="(max-width: 768px)" srcSet={nameMob} />
-          <img
-            className="block mx-auto w-[180px] h-auto lg:w-[250px] md:h-auto"
-            src={nameDesk}
-            alt="TALIA 2.KO Main hero image"
-            loading="eager"
-            decoding="async"
-            width={250}
-            height={80}
-          />
-        </picture>
-      </div>
+      <picture>
+        <source media="(max-width: 768px)" srcSet={nameMob} />
+        <img
+          className="block mx-auto mb-[8px] md:mb-[16px]  max-w-[200px] h-auto lg:max-w-[400px]"
+          src={nameDesk}
+          alt="TALIA 2.KO Main hero image"
+          loading="eager"
+          decoding="async"
+          width={400}
+          height={80}
+        />
+      </picture>
 
-      <p className="text-center text-text-theme font-semibold text-xs  md:text-lg">{t('hero.description')}</p>
-      <button type="button" className="btn font-semibold text-lg  w-full py-3 lg:py-6">
+      <p className="text-center text-text-theme font-semibold text-xs mb-[8px] md:text-base md:mb-[16px]">
+        {t('hero.description')}
+      </p>
+      <button type="button" className="btnHero py-[16px] mx-auto md:min-w-[400px] md:py-[24px]">
         {t('btn.heroInfoBtn')}
       </button>
     </div>

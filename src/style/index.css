@@ -5,7 +5,7 @@
   :root {
     --bg: #bfaf9b;
     --text-theme: #140d0a;
-    --accent: #a9834e;
+    --accent: #7a5c32;
     --bg-btn: #140d0a;
     --text-btn: #bfaf9b;
     --primary: #140d0a;
@@ -54,11 +54,18 @@
 
 @layer components {
   .btn {
-    @apply min-w-[130px] rounded-lg bg-bg-btn p-[8px] text-sm font-semibold text-text-btn block
+    @apply min-w-[130px] font-semibold rounded-lg bg-bg-btn p-[8px] outline-none text-sm font-semibold text-text-btn block
       cursor-pointer transition-all duration-500
-      hover:shadow-[0_10px_30px_rgba(20,13,10,0.28),0_0_12px_rgba(198,168,107,0.16)] hover:bg-accent
-      focus:shadow-[0_10px_30px_rgba(20,13,10,0.28),0_0_12px_rgba(198,168,107,0.16)] focus:bg-accent
-      focus:outline-none;
+     hover:bg-accent  hover:text-kakao
+      focus:bg-accent focus:text-kakao;
+  }
+
+  .btnHero {
+    @apply min-w-[200px] font-semibold rounded-lg block
+    bg-[radial-gradient(circle_at_center,#ffea7a_0%,#f6da63_15%,_38%,#be8b3c_64%,#7a5c32_100%)]
+    cursor-pointer outline-none transition-all duration-500
+    hover:bg-none hover:bg-accent hover:text-kakao
+    focus:bg-none focus:bg-accent focus:text-kakao;
   }
 
   .icon-btn {
@@ -66,7 +73,7 @@
   }
 
   .icon {
-    @apply text-xl text-kakao transition-colors duration-300
+    @apply text-xl text-text-theme transition-colors duration-500
       md:text-2xl
       group-hover:text-accent
       group-focus:text-accent;
