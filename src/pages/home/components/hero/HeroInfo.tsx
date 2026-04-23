@@ -34,7 +34,7 @@ const HeroInfo = () => {
         />
       </picture>
       <p className="text-accentLightGold font-bold text-base md:text">{t('hero.slogan')}</p>
-      <p className="text-center text-text-theme font-semibold text-sm mb-[16px] md:text-base md:mb-[24px]">
+      <p className="text-center text-text-theme font-normal text-sm mb-[16px] md:text-base md:mb-[24px]">
         {t('hero.description')}
       </p>
       <button type="button" className="btnHero ">

@@ -4,7 +4,7 @@ import { Container } from '@/shared/ui';
 const MainLoyout = () => {
   return (
     <Container>
-      <header>Header</header>
+      <header className="font-normal">Header</header>
 
       <main>
         <Outlet />
