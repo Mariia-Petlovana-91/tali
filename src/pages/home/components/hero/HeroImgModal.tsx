@@ -16,7 +16,7 @@ const HeroImgModal = ({ piece, onNavigate }: HeroImgModalProps) => {
             src={piece.full}
             alt={piece.alt}
             draggable={false}
-            className="block w-[50%] h-auto rounded-xl object-cover mx-auto mb-[24px]"
+            className="block w-[250px] h-[280px] rounded-xl object-cover mx-auto mb-[24px] md:w-[300px] md:h-[400px]"
           />
           <p className="text-text-theme text-base mb-[24px] max-h-[250px] overflow-auto no-scrollbar">
             {t(piece?.text ?? '')}
