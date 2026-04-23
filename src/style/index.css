@@ -3,8 +3,8 @@
 
 @layer base {
   :root {
-    --bg: #bfaf9b;
-    --text-theme: #140d0a;
+    --bg: #344730;
+    --text-theme: #18110e;
     --accent: #7a5c32;
     --bg-btn: #140d0a;
     --text-btn: #bfaf9b;
@@ -18,7 +18,7 @@
   }
 
   .dark {
-    --bg: #140d0a;
+    --bg: #2b221f;
     --text-theme: #bfaf9b;
     --bg-btn: #bfaf9b;
     --text-btn: #140d0a;
@@ -61,7 +61,7 @@
   }
 
   .btnHero {
-    @apply min-w-[200px] font-semibold rounded-lg block
+    @apply w-[280px] py-[16px] mb-[16px] md:py-[24px] md:mb-[24px] md:w-[400px] font-bold rounded-lg block
     bg-[radial-gradient(circle_at_center,#ffea7a_0%,#f6da63_15%,_38%,#be8b3c_64%,#7a5c32_100%)]
     cursor-pointer outline-none transition-all duration-500
     hover:bg-none hover:bg-accent hover:text-kakao

@@ -51,11 +51,11 @@ const AnimationImg = () => {
   };
 
   return (
-    <div ref={rootRef} className="w-full xl:w-1/2 shrink-0 overflow-hidden">
+    <div ref={rootRef} className=" lg:w-[60%] shrink-0 overflow-hidden flex">
       <div
         ref={stageRef}
         onClick={handleStageClick}
-        className={`relative w-full aspect-[4/3] mx-auto overflow-hidden transition-opacity duration-500 ${
+        className={`relative w-full aspect-[4/3] overflow-hidden transition-opacity duration-500 ${
           assetsReady ? 'opacity-100' : 'opacity-0'
         } ${activeModal ? 'pointer-events-none' : 'cursor-pointer'}`}
       >

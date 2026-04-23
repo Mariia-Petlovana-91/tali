@@ -1,35 +1,46 @@
 import { useTranslation } from 'react-i18next';
 
-import nameDesk from '@/img/hero/nameDesk.png';
-import nameMob from '@/img/hero/nameMob.png';
+import nameDesk from '@/img/hero/nameDesk.webp';
+import nameMob from '@/img/hero/nameMob.webp';
+import dekor from '@/img/dekor/decorLotosHero.webp';
+import logoDesk from '@/img/hero/tulip_transparent_bg.png';
+import logoMob from '@/img/logo/logoTaliaMob.webp';
 
 const HeroInfo = () => {
   const { t } = useTranslation();
   return (
-    <div
-      className="border border-[2px] border-red w-full mb-[16px] lg:pr-[16px]
-    xl:mb-[0px] xl:flex xl:flex-col item-center justify-center"
-    >
+    <div className=" flex flex-col justify-center items-center gap-[16px] mb-[24px] md:gap-[24px] lg:mb-[0px] lg:pr-[24px] ">
       <h1 className="hidden">TALIA 2.KO</h1>
+      <picture>
+        <source media="(max-width: 768px)" srcSet={logoMob} />
+        <img
+          src={logoDesk}
+          alt="TALIA 2.KO logo"
+          loading="eager"
+          decoding="async"
+          className="w-[90px] h-[90px] md:w-[140px] md:h-[150px]"
+        />
+      </picture>
       <picture>
         <source media="(max-width: 768px)" srcSet={nameMob} />
         <img
-          className="block mx-auto mb-[8px] md:mb-[16px]  max-w-[200px] h-auto lg:max-w-[400px]"
           src={nameDesk}
           alt="TALIA 2.KO Main hero image"
           loading="eager"
           decoding="async"
+          className="w-[280px] md:w-[400px] h-auto"
           width={400}
           height={80}
         />
       </picture>
-
-      <p className="text-center text-text-theme font-semibold text-xs mb-[8px] md:text-base md:mb-[16px]">
+      <p className="text-accent font-bold text-base md:text">{t('hero.slogan')}</p>
+      <p className="text-center text-text-theme font-semibold text-sm mb-[16px] md:text-base md:mb-[24px]">
         {t('hero.description')}
       </p>
-      <button type="button" className="btnHero py-[16px] mx-auto md:min-w-[400px] md:py-[24px]">
+      <button type="button" className="btnHero ">
         {t('btn.heroInfoBtn')}
       </button>
+      <img src={dekor} alt="dekor element lotos" className="hidden lg:block" width={400} />
     </div>
   );
 };

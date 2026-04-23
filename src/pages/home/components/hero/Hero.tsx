@@ -3,7 +3,7 @@ import HeroInfo from './HeroInfo';
 
 const Hero = () => {
   return (
-    <div className="xl:flex flex-row ">
+    <div className="lg:flex flex-row">
       <HeroInfo />
       <AnimationImg />
     </div>
