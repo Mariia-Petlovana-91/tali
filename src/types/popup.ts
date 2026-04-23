@@ -4,10 +4,12 @@ export type HeroImgModalProps = {
   onNavigate?: () => void;
 };
 
-export type PopupItem = {
-  type: 'HERO_IMAGE';
-  props: HeroImgModalProps;
-};
+export type PopupItem =
+  | {
+      type: 'HERO_IMAGE';
+      props: HeroImgModalProps;
+    }
+  | { type: 'MOBILE_MENU' };
 
 export type PopupState = {
   modalStack: PopupItem[];

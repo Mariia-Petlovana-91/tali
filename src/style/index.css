@@ -32,6 +32,11 @@
   body {
     font-family: 'Roboto Serif';
   }
+
+  a {
+    outline: none;
+    display: inline-block;
+  }
 }
 
 @layer components {
@@ -49,13 +54,14 @@
     hover:bg-none hover:bg-accentDarkGold hover:text-kakao
     focus:bg-none focus:bg-accentDarkGold focus:text-kakao;
   }
-  #fff590 .icon-btn {
+
+  .icon-btn {
     @apply inline-flex items-center justify-center cursor-pointer focus-visible:outline-none;
   }
 
   .icon {
-    @apply text-xl text-text-theme transition-colors duration-500
-      md:text-2xl
+    @apply text-2xl text-text-theme transition-colors duration-500
+      md:text-[32px]
       group-hover:text-accentDarkGold
       group-focus:text-accentDarkGold;
   }

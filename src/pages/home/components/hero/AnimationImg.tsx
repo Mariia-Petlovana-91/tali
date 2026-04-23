@@ -66,7 +66,7 @@ const AnimationImg = () => {
             key={piece.id}
             data-piece
             src={piece.preview}
-            alt="all pieces"
+            alt={piece.alt}
             draggable={false}
             width={500}
             height={500}

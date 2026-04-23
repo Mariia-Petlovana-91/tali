@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import { Container } from '@/shared/ui';
+import { Container, Header } from '@/shared';
 
 const MainLoyout = () => {
   return (
     <Container>
-      <header className="font-normal">Header</header>
+      <Header />
 
       <main>
         <Outlet />
