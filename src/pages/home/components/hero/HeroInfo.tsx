@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import nameDesk from '@/img/hero/nameDesk.webp';
 import nameMob from '@/img/hero/nameMob.webp';
 import dekor from '@/img/dekor/decorLotos.webp';
-import logoDesk from '@/img/logo/-.png';
-import logoMob from '@/img/logo/-.png';
+import logoDesk from '@/img/logo/logoTaliaDesk.webp';
+import logoMob from '@/img/logo/logoTaliaMob.webp';
 
 const HeroInfo = () => {
   const { t } = useTranslation();
@@ -33,7 +33,7 @@ const HeroInfo = () => {
           height={80}
         />
       </picture>
-      <p className="text-[#C6A86B] font-bold text-base md:text">{t('hero.slogan')}</p>
+      <p className="text-accentLightGold font-bold text-base md:text">{t('hero.slogan')}</p>
       <p className="text-center text-text-theme font-semibold text-sm mb-[16px] md:text-base md:mb-[24px]">
         {t('hero.description')}
       </p>
