@@ -3,8 +3,8 @@
 
 @layer base {
   :root {
-    --bg: #344730;
-    --text-theme: #18110e;
+    --bg: #bfaf9b;
+    --text-theme: #140d0a;
     --accent: #7a5c32;
     --bg-btn: #140d0a;
     --text-btn: #bfaf9b;
@@ -18,7 +18,7 @@
   }
 
   .dark {
-    --bg: #2b221f;
+    --bg: #140d0a;
     --text-theme: #bfaf9b;
     --bg-btn: #bfaf9b;
     --text-btn: #140d0a;

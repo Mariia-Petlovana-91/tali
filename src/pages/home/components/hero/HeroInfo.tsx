@@ -4,7 +4,7 @@ import nameDesk from '@/img/hero/nameDesk.webp';
 import nameMob from '@/img/hero/nameMob.webp';
 import dekor from '@/img/dekor/decorLotosHero.webp';
 import logoDesk from '@/img/hero/tulip_transparent_bg.png';
-import logoMob from '@/img/logo/logoTaliaMob.webp';
+import logoMob from '@/img/hero/tulip_transparent_bg.png';
 
 const HeroInfo = () => {
   const { t } = useTranslation();
@@ -33,7 +33,7 @@ const HeroInfo = () => {
           height={80}
         />
       </picture>
-      <p className="text-accent font-bold text-base md:text">{t('hero.slogan')}</p>
+      <p className="text-accent font-bold text-lg md:text">{t('hero.slogan')}</p>
       <p className="text-center text-text-theme font-semibold text-sm mb-[16px] md:text-base md:mb-[24px]">
         {t('hero.description')}
       </p>
