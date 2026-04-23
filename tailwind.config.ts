@@ -8,12 +8,11 @@ const config: Config = {
       colors: {
         bg: 'var(--bg)',
         'text-theme': 'var(--text-theme)',
-        accent: 'var(--accent)',
+        accentDarkGold: 'var(--accentDarkGold)',
+        accentLightGold: 'var(--accentLightGold)',
         'bg-btn': 'var(--bg-btn)',
         'text-btn': 'var(--text-btn)',
-        primary: 'var(--primary)',
         kakao: 'var(--kakao)',
-        'bg-hero': 'var(--bg-hero)',
       },
       keyframes: {},
 

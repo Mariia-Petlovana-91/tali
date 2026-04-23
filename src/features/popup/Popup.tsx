@@ -49,12 +49,7 @@ const Popup = () => {
               }}
               className="block ml-auto mb-4 icon-btn group "
             >
-              <VscClose
-                className="text-xl text-kakao transition-colors duration-500
-      md:text-2xl
-      group-hover:text-accent
-      group-focus:text-accent"
-              />
+              <VscClose className="icon" />
             </button>
             {activeModal.type === 'HERO_IMAGE' && <HeroImgModal {...activeModal.props} onNavigate={handleClose} />}
           </motion.div>

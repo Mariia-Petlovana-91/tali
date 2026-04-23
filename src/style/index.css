@@ -3,32 +3,18 @@
 
 @layer base {
   :root {
-    --bg: #bfaf9b;
-    --text-theme: #140d0a;
-    --accent: #7a5c32;
-    --bg-btn: #140d0a;
-    --text-btn: #bfaf9b;
-    --primary: #140d0a;
-    --kakao: #bfaf9b;
-    --bg-hero: #140d0a;
-    /*
-    #C6A86B
-    #B9975B
-    */
-  }
-
-  .dark {
     --bg: #19110d;
     --text-theme: #bfaf9b;
+    --accentDarkGold: #7a5c32;
+    --accentLightGold: #b9975b;
     --bg-btn: #bfaf9b;
-    --text-btn: #140d0a;
-    --primary: #bfaf9b;
-    --bg-hero: #bfaf9b;
+    --text-btn: #19110d;
+    --kakao: #bfaf9b;
   }
 
   html,
   body {
-    @apply m-0 overflow-x-hidden overflow-y-auto;
+    @apply m-0 overflow-x-hidden overflow-y-auto bg-bg;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -36,10 +22,6 @@
   html::-webkit-scrollbar,
   body::-webkit-scrollbar {
     display: none;
-  }
-
-  body {
-    @apply bg-bg;
   }
 
   html.no-scroll,
@@ -56,16 +38,16 @@
   .btn {
     @apply min-w-[130px] font-semibold text-sm text-text-btn block rounded-lg bg-bg-btn py-[16px] outline-none
       cursor-pointer transition-all duration-500 md:py-[24px]
-     hover:bg-accent  hover:text-kakao
-      focus:bg-accent focus:text-kakao;
+     hover:bg-accentDarkGold  hover:text-kakao
+      focus:bg-accentDarkGold focus:text-kakao;
   }
 
   .btnHero {
     @apply w-[280px] py-[16px] mb-[16px] md:py-[24px] md:mb-[24px] md:w-[400px] font-bold rounded-lg block
     bg-[radial-gradient(circle_at_center,#ffea7a_0%,#f6da63_15%,_38%,#be8b3c_64%,#7a5c32_100%)]
     cursor-pointer outline-none transition-all duration-500
-    hover:bg-none hover:bg-accent hover:text-kakao
-    focus:bg-none focus:bg-accent focus:text-kakao;
+    hover:bg-none hover:bg-accentDarkGold hover:text-kakao
+    focus:bg-none focus:bg-accentDarkGold focus:text-kakao;
   }
 
   .icon-btn {
@@ -75,8 +57,8 @@
   .icon {
     @apply text-xl text-text-theme transition-colors duration-500
       md:text-2xl
-      group-hover:text-accent
-      group-focus:text-accent;
+      group-hover:text-accentDarkGold
+      group-focus:text-accentDarkGold;
   }
 
   .no-scrollbar {

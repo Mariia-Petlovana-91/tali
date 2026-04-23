@@ -33,7 +33,7 @@ const HeroInfo = () => {
           height={80}
         />
       </picture>
-      <p className="text-accent font-bold text-base md:text">{t('hero.slogan')}</p>
+      <p className="text-[#C6A86B] font-bold text-base md:text">{t('hero.slogan')}</p>
       <p className="text-center text-text-theme font-semibold text-sm mb-[16px] md:text-base md:mb-[24px]">
         {t('hero.description')}
       </p>
