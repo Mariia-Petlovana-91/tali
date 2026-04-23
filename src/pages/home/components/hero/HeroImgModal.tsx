@@ -6,10 +6,7 @@ import type { HeroImgModalProps } from '@/types/popup';
 const HeroImgModal = ({ piece, onNavigate }: HeroImgModalProps) => {
   const { t } = useTranslation();
   return (
-    <div
-      className="relative w-full md:max-w-[600px] p-[24px] md:p-[32px] rounded-lg bg-bg overflow-auto no-scrollbar text-center"
-      onClick={(e) => e.stopPropagation()}
-    >
+    <div className="relative max-w-[360px] w-full md:max-w-[600px] p-[24px] md:p-[32px] rounded-lg bg-bg overflow-auto no-scrollbar text-center">
       {piece && (
         <>
           <img

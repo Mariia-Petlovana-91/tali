@@ -44,13 +44,12 @@
 
   .btnHero {
     @apply w-[280px] py-[16px] mb-[16px] md:py-[24px] md:mb-[24px] md:w-[400px] font-bold rounded-lg block
-    bg-[radial-gradient(circle_at_center,#ffea7a_0%,#f6da63_15%,_38%,#be8b3c_64%,#7a5c32_100%)]
+    bg-[radial-gradient(circle_at_center,#ffea7a_0%,#fff590_4%,#f6da63_15%,_38%,#be8b3c_64%,#7a5c32_100%)]
     cursor-pointer outline-none transition-all duration-500
     hover:bg-none hover:bg-accentDarkGold hover:text-kakao
     focus:bg-none focus:bg-accentDarkGold focus:text-kakao;
   }
-
-  .icon-btn {
+  #fff590 .icon-btn {
     @apply inline-flex items-center justify-center cursor-pointer focus-visible:outline-none;
   }
 
