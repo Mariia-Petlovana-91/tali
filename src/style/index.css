@@ -54,8 +54,8 @@
 
 @layer components {
   .btn {
-    @apply min-w-[130px] font-semibold rounded-lg bg-bg-btn p-[8px] outline-none text-sm font-semibold text-text-btn block
-      cursor-pointer transition-all duration-500
+    @apply min-w-[130px] font-semibold text-sm text-text-btn block rounded-lg bg-bg-btn py-[16px] outline-none
+      cursor-pointer transition-all duration-500 md:py-[24px]
      hover:bg-accent  hover:text-kakao
       focus:bg-accent focus:text-kakao;
   }

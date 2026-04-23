@@ -3,14 +3,14 @@ import { useTranslation } from 'react-i18next';
 import nameDesk from '@/img/hero/nameDesk.webp';
 import nameMob from '@/img/hero/nameMob.webp';
 import dekor from '@/img/dekor/decorLotos.webp';
-import logoDesk from '@/img/logo/ChatGPT Image 23 квіт. 2026 р., 17_52_30.png';
-import logoMob from '@/img/logo/ChatGPT Image 23 квіт. 2026 р., 17_52_30.png';
+import logoDesk from '@/img/logo/-.png';
+import logoMob from '@/img/logo/-.png';
 
 const HeroInfo = () => {
   const { t } = useTranslation();
   return (
     <div className=" flex flex-col justify-center items-center gap-[16px] mb-[24px] md:gap-[24px] lg:mb-[0px] lg:pr-[24px] ">
-      <h1 className="hidden">TALIA 2.KO</h1>
+      <h1 className="sr-only">TALIA 2.KO</h1>
       <picture>
         <source media="(max-width: 768px)" srcSet={logoMob} />
         <img

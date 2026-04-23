@@ -27,7 +27,7 @@ const Popup = () => {
       {isOpen && activeModal && (
         <motion.div
           key={activeModal.type}
-          className="fixed inset-0 z-50 flex items-start md:items-center justify-center md:justify-center bg-black/80 backdrop-blur-md p-4"
+          className="fixed inset-0 z-50 flex justify-center bg-black/80 backdrop-blur-md p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
