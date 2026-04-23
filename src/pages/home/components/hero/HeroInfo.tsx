@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next';
 
 import nameDesk from '@/img/hero/nameDesk.webp';
 import nameMob from '@/img/hero/nameMob.webp';
-import dekor from '@/img/dekor/decorLotosHero.webp';
-import logoDesk from '@/img/hero/tulip_transparent_clean.png';
-import logoMob from '@/img/hero/tulip_transparent_clean.png';
+import dekor from '@/img/dekor/decorLotos.webp';
+import logoDesk from '@/img/logo/ChatGPT Image 23 квіт. 2026 р., 17_52_30.png';
+import logoMob from '@/img/logo/ChatGPT Image 23 квіт. 2026 р., 17_52_30.png';
 
 const HeroInfo = () => {
   const { t } = useTranslation();
