@@ -16,9 +16,9 @@ const HeroImgModal = ({ piece, onNavigate }: HeroImgModalProps) => {
             src={piece.full}
             alt={piece.alt}
             draggable={false}
-            className="block w-[250px] h-[280px] rounded-xl object-cover mx-auto mb-[24px] md:w-[300px] md:h-[400px]"
+            className="block w-[220px] h-[240px] rounded-xl object-cover mx-auto mb-[24px] lg:w-[300px] lg:h-[320px]"
           />
-          <p className="text-text-theme text-base mb-[24px] max-h-[250px] overflow-auto no-scrollbar">
+          <p className="text-text-theme text-sm mb-[24px] max-h-[180px] overflow-auto no-scrollbar md:text-lg">
             {t(piece?.text ?? '')}
           </p>
           <NavLink to={piece?.link ?? ''} onClick={onNavigate} className="btn text-center">
