@@ -1,5 +1,6 @@
 import logo from '@/img/hero/nameMob.webp';
 import { MobMenuBtn } from '@/shared';
+import { Navigation } from '@/shared/components';
 
 const Header = () => {
   return (
@@ -7,6 +8,7 @@ const Header = () => {
       <a href="/" aria-label="Go Home">
         <img src={logo} alt="logo" className="w-[120px] md:w-[180px] h-auto" />
       </a>
+      <Navigation />
       <div className="flex">
         <MobMenuBtn />
       </div>

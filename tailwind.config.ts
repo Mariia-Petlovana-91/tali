@@ -8,8 +8,8 @@ const config: Config = {
       colors: {
         bg: 'var(--bg)',
         'text-theme': 'var(--text-theme)',
-        accentDarkGold: 'var(--accentDarkGold)',
-        accentLightGold: 'var(--accentLightGold)',
+        'accent-dark-gold': 'var(--accent-dark-gold)',
+        'accent-light-gold': 'var(--accent-light-gold)',
         'bg-btn': 'var(--bg-btn)',
         'text-btn': 'var(--text-btn)',
         kakao: 'var(--kakao)',

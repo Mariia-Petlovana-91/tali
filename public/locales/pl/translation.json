@@ -1,5 +1,8 @@
 {
-  "btn": { "heroImgModal": "Zobacz wiecej", "heroInfoBtn": "Umów bezpłatną konsultacje" },
+  "btn": {
+    "heroImgModal": "Zobacz wiecej",
+    "heroInfoBtn": "Umów bezpłatną konsultacje"
+  },
   "hero": {
     "modalText": {
       "1": "Tworzymy dekoracje ślubną, która podkreśli Waszą historię miłosną. Przemyślimy każdy szczegół projektu, od ogólnej koncepcji po akcenty dekoracyjne, aby wszystko wyglądało harmonijnie i estetycznie. Dbamy o atmosferę, piękno przestrzeni i Wasze emocje, aby święto pozostawiło w Was najserdeczniejsze wspomnienia. Z nami Wasz ślub będzie wyjątkowy w każdym calu.",
@@ -14,5 +17,10 @@
     },
     "slogan": "Każde wydarzenie jako dzieło sztuki",
     "description": "Dekoracja eventowa ze smakiem i charakterem.Od koncepji po realizację, tworzymy niezapomniane aranżacje, które podkreślają wyjątkowość każdej okazji. Nasze dekoracje to połączenie kreatywności, elegancji i dbałości o detale, które sprawiają, że każde wydarzenie staje się prawdziwym dziełem sztuki."
+  },
+  "nav": {
+    "home": "Główna",
+    "about": "O nas",
+    "services": "Usługi"
   }
 }
