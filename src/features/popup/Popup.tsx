@@ -11,6 +11,8 @@ import { useScrollLock } from '@/hooks/useScrollLockHook';
 import { HeroImgModal } from '@/pages/home/components/hero';
 import { MobMenu } from '@/shared';
 
+import superDecor from '@/img/dekor/super.png';
+
 const Popup = () => {
   const isOpen = useSelector(selectIsOpen);
   const activeModal = useSelector(selectActiveModal);
@@ -45,7 +47,14 @@ const Popup = () => {
       {isOpen && activeModal && (
         <motion.div
           key={activeModal.type}
-          className={`fixed inset-0 z-50 flex ${isMobMenu ? 'justify-start items-start' : 'items-center justify-center'} bg-black/80 backdrop-blur-md`}
+          style={{ '--decor-bg': `url(${superDecor})` } as React.CSSProperties}
+          className={`fixed inset-0 z-50 flex ${
+            isMobMenu ? 'justify-start items-start' : 'items-center justify-center'
+          } bg-black/80 backdrop-blur-md
+  before:content-[''] before:absolute before:inset-0
+  before:bg-[image:var(--decor-bg)]
+  before:bg-no-repeat before:bg-center before:bg-contain
+  before:opacity-30 before:pointer-events-none`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
