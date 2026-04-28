@@ -1,6 +1,5 @@
 import logo from '@/img/hero/nameMob.webp';
-import { MobMenuBtn } from '@/shared';
-import { Navigation } from '@/shared/components';
+import { MobMenuBtn, Navigation } from '@/shared';
 
 const Header = () => {
   return (

@@ -48,7 +48,7 @@
   }
 
   .btnHero {
-    @apply w-[280px] py-[16px] mb-[16px] md:py-[24px] md:mb-[24px] md:w-[400px] font-bold rounded-lg block
+    @apply p-[16px] mb-[16px] md:p-[32px] md:mb-[24px]  font-bold rounded-lg block
     bg-[radial-gradient(circle_at_center,#ffea7a_0%,#fff590_4%,#f6da63_15%,_38%,#be8b3c_64%,#7a5c32_100%)]
     cursor-pointer outline-none transition-all duration-500
     hover:bg-none hover:bg-accent-dark-gold hover:text-kakao
@@ -60,8 +60,8 @@
   }
 
   .icon {
-    @apply text-2xl text-text-theme transition-colors duration-500
-      md:text-[32px]
+    @apply text-[28px] text-text-theme transition-colors duration-500
+      md:text-[40px]
       group-hover:text-accent-dark-gold
       group-focus:text-accent-dark-gold;
   }

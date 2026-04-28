@@ -5,6 +5,7 @@ import nameMob from '@/img/hero/nameMob.webp';
 import dekor from '@/img/dekor/decorLotos.webp';
 import logoDesk from '@/img/logo/logoTaliaDesk.webp';
 import logoMob from '@/img/logo/logoTaliaMob.webp';
+import { HeroBtn } from '@/shared';
 
 const HeroInfo = () => {
   const { t } = useTranslation();
@@ -37,15 +38,7 @@ const HeroInfo = () => {
       <p className="text-center text-text-theme font-normal text-sm mb-[16px] md:text-base md:mb-[24px]">
         {t('hero.description')}
       </p>
-      <a
-        aria-label="go to phone"
-        href="tel:+48730685755"
-        target="_blanl"
-        rel="noopener nareferrer"
-        className="btnHero text-center "
-      >
-        {t('btn.heroInfoBtn')}
-      </a>
+      <HeroBtn />
       <img src={dekor} alt="dekor element lotos" className="hidden lg:block" width={400} />
     </div>
   );
