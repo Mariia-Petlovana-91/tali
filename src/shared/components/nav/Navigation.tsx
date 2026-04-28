@@ -7,18 +7,20 @@ type NavigationProps = {
 };
 
 const Navigation = ({ onNavigate }: NavigationProps) => {
-  const baseStyle =
-    'text-sm font-semibold text-center text-text-theme transition-colors duration-300 outlile-none md:text-base ';
-  const activStyle = 'text-accent-light-gold';
-  const hoverFocusStyle = 'hover:text-accent-dark-gold focus:text-accent-dark-gold';
   const { t } = useTranslation();
-  const navClass = ({ isActive }: { isActive: boolean }) => `${baseStyle} ${isActive ? activStyle : hoverFocusStyle}`;
+
+  const baseStyle =
+    'text-sm font-semibold text-center transition-colors duration-300 outline-none md:text-base lg:text-lg';
+  const activeStyle = 'text-accent-light-gold';
+  const inactiveStyle = 'text-text-theme hover:text-accent-dark-gold focus:text-accent-dark-gold';
+
+  const navClass = ({ isActive }: { isActive: boolean }) => `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`;
 
   return (
     <nav>
-      <ul>
+      <ul className="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-6">
         <li>
-          <NavLink to="/" onClick={onNavigate} className={navClass}>
+          <NavLink end to="/" onClick={onNavigate} className={navClass}>
             {t('nav.home')}
           </NavLink>
         </li>

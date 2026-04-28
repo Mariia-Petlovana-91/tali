@@ -8,7 +8,10 @@ const Header = () => {
       <a href="/" aria-label="Go Home">
         <img src={logo} alt="logo" className="w-[120px] md:w-[180px] h-auto" />
       </a>
-      <Navigation />
+      <div className="hidden lg:block">
+        <Navigation />
+      </div>
+
       <div className="flex">
         <MobMenuBtn />
       </div>
