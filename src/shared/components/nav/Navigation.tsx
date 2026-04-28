@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import type { MouseEventHandler } from 'react';
 
 type NavigationProps = {
-  onNavigate: MouseEventHandler<HTMLAnchorElement>;
+  onNavigate?: MouseEventHandler<HTMLAnchorElement>;
 };
 
 const Navigation = ({ onNavigate }: NavigationProps) => {
