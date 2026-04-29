@@ -8,7 +8,7 @@
     --accent-dark-gold: #7a5c32;
     --accent-light-gold: #b9975b;
     --bg-btn: #bfaf9b;
-    --text-btn: #19110d;
+    --text-btn: #1f1411;
     --kakao: #bfaf9b;
   }
 
@@ -47,6 +47,13 @@
       focus:bg-accent-dark-gold focus:text-kakao;
   }
 
+  .btnLanguage {
+    @apply w-[20px] h-[20px] font-bold text-xs text-text-btn text-center block rounded-sm bg-accent-light-gold outline-none md:w-[24px] md:h-[24px]  lg:w-[32px] lg:h-[32px] lg:text-sm  
+      cursor-pointer transition-all duration-500
+     hover:bg-accent-dark-gold  hover:text-kakao
+      focus:bg-accent-dark-gold focus:text-kakao;
+  }
+
   .btnHero {
     @apply p-[16px] mb-[16px] md:p-[32px] md:mb-[24px]  font-bold rounded-lg block
     bg-[radial-gradient(circle_at_center,#ffea7a_0%,#fff590_4%,#f6da63_15%,_38%,#be8b3c_64%,#7a5c32_100%)]
@@ -60,10 +67,18 @@
   }
 
   .icon {
-    @apply text-[28px] text-text-theme transition-colors duration-500
-      md:text-[40px]
+    @apply text-[24px] text-text-theme transition-colors duration-500
+      md:text-[32px]
       group-hover:text-accent-dark-gold
       group-focus:text-accent-dark-gold;
+  }
+
+  .dropdown-btn-lang {
+    @apply cursor-pointer outline-none transition-colors duration-500
+         text-text-theme text-xs font-semibold md:text-sm
+         border border-text-theme rounded-[4px] p-[6px] 
+         hover:text-accent-dark-gold hover:border-accent-dark-gold
+         focus:text-accent-dark-gold focus:border-accent-dark-gold;
   }
 
   .no-scrollbar {

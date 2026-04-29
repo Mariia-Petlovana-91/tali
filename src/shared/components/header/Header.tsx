@@ -1,5 +1,5 @@
 import logo from '@/img/hero/nameMob.webp';
-import { MobMenuBtn, Navigation } from '@/shared';
+import { MobMenuBtn, Navigation, Language } from '@/shared';
 
 const Header = () => {
   return (
@@ -11,7 +11,8 @@ const Header = () => {
         <Navigation />
       </div>
 
-      <div className="flex">
+      <div className="flex items-center gap-[16px]">
+        <Language />
         <MobMenuBtn />
       </div>
     </header>
