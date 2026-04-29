@@ -1,5 +1,5 @@
 const Section = ({ children }: { children: React.ReactNode }) => {
-  return <section className="w-full py-12 md:py-16 lg:py-20">{children}</section>;
+  return <section className="w-full py-[48px] md:py-[56px] lg:py-[96px]">{children}</section>;
 };
 
 export default Section;

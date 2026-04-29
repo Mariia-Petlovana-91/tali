@@ -18,7 +18,7 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
 
   return (
     <nav>
-      <ul className="text-center flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-6">
+      <ul className="text-center flex flex-col space-y-[16px] lg:flex-row lg:space-y-0 lg:space-x-[24px]">
         <li>
           <NavLink end to="/" onClick={onNavigate} className={navClass}>
             {t('nav.home')}
