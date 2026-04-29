@@ -2,17 +2,17 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 import type { HeroImgModalProps } from '@/types/popup';
-import superDecor from '@/img/dekor/ippipi.png';
+import modal from '@/img/dekor/modalDecor.webp';
 
 const HeroImgModal = ({ piece, onNavigate }: HeroImgModalProps) => {
   const { t } = useTranslation();
   return (
     <div
-      style={{ '--decor-bg': `url(${superDecor})` } as React.CSSProperties}
+      style={{ '--decor-bg': `url(${modal})` } as React.CSSProperties}
       className="relative w-[calc(100vw-32px)] max-w-[360px] md:max-w-[600px] p-[24px] md:p-[32px] rounded-lg bg-bg  before:content-[''] before:absolute before:inset-0
   before:bg-[image:var(--decor-bg)]
   before:bg-no-repeat before:bg-center before:bg-cover
-  before:opacity-20 before:pointer-events-none overflow-auto  text-center"
+  before:opacity-30 before:pointer-events-none overflow-auto  text-center"
     >
       {piece && (
         <>

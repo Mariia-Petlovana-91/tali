@@ -10,7 +10,7 @@ import { HeroBtn } from '@/shared';
 const HeroInfo = () => {
   const { t } = useTranslation();
   return (
-    <div className=" flex flex-col justify-center items-center gap-[16px] mb-[24px] md:gap-[24px] lg:mb-[0px] lg:pr-[24px] ">
+    <div className="relative flex flex-col justify-center items-center gap-[16px] mb-[24px] md:gap-[24px] lg:mb-[0px] lg:pr-[24px] ">
       <h1 className="sr-only">TALIA 2.KO</h1>
       <picture>
         <source media="(max-width: 768px)" srcSet={logoMob} />
