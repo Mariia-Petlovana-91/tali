@@ -8,7 +8,7 @@ import { selectActiveModal, selectIsOpen } from '@/redux/popup/selectors';
 
 import { useEscapeHook } from '@/hooks/useEscapeHook';
 import { useScrollLock } from '@/hooks/useScrollLockHook';
-import { HeroImgModal } from '@/pages/home/components/hero';
+import { HeroImgModal, ImageFullModal } from '@/pages/home/components/hero';
 import { MobMenu } from '@/shared';
 
 const Popup = () => {
@@ -78,6 +78,7 @@ const Popup = () => {
 
             {activeModal.type === 'HERO_IMAGE' && <HeroImgModal {...activeModal.props} onNavigate={handleClose} />}
             {activeModal.type === 'MOBILE_MENU' && <MobMenu />}
+            {activeModal.type === 'IMAGE_FULL' && <ImageFullModal {...activeModal.props} />}
           </motion.div>
         </motion.div>
       )}

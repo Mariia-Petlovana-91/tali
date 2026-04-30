@@ -9,7 +9,11 @@ export type PopupItem =
       type: 'HERO_IMAGE';
       props: HeroImgModalProps;
     }
-  | { type: 'MOBILE_MENU' };
+  | { type: 'MOBILE_MENU' }
+  | {
+      type: 'IMAGE_FULL';
+      props: Piece;
+    };
 
 export type PopupState = {
   modalStack: PopupItem[];

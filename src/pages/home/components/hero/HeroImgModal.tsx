@@ -1,11 +1,24 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import type { HeroImgModalProps } from '@/types/popup';
+import type { Piece } from '@/types/hero';
+import { openPopup } from '@/redux/popup/slice';
 import modal from '@/img/dekor/modalDecor.webp';
 
 const HeroImgModal = ({ piece, onNavigate }: HeroImgModalProps) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  const openFullImg = (piece: Piece) => {
+    dispatch(
+      openPopup({
+        type: 'IMAGE_FULL',
+        props: piece,
+      }),
+    );
+  };
   return (
     <div
       style={{ '--decor-bg': `url(${modal})` } as React.CSSProperties}
@@ -16,12 +29,22 @@ const HeroImgModal = ({ piece, onNavigate }: HeroImgModalProps) => {
     >
       {piece && (
         <>
-          <img
-            src={piece.full}
-            alt={piece.alt}
-            draggable={false}
-            className="block w-[100px] h-[100px]  rounded-xl object-cover mx-auto mb-[24px] md:w-[240px] md:h-[240px] lg:w-[300px] lg:h-[300px]"
-          />
+          <button
+            type="button"
+            className="cursor-pointer"
+            onClick={() => {
+              openFullImg(piece);
+            }}
+          >
+            {' '}
+            <img
+              src={piece.full}
+              alt={piece.alt}
+              draggable={false}
+              className="block w-[100px] h-[100px]  rounded-xl object-cover mx-auto mb-[24px] md:w-[240px] md:h-[240px] lg:w-[300px] lg:h-[300px]"
+            />
+          </button>
+
           <p className="text-text-theme text-sm mb-[24px] max-h-[180px] overflow-auto no-scrollbar md:text-lg">
             {t(piece?.text ?? '')}
           </p>

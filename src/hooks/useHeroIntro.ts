@@ -1,4 +1,3 @@
-// hooks/useHeroIntro.ts
 import { useLayoutEffect } from 'react';
 import gsap from 'gsap';
 
