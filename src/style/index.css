@@ -48,9 +48,9 @@
   }
 
   .btnLanguage {
-    @apply w-[20px] h-[20px] font-bold text-xs text-text-btn text-center block rounded-sm bg-accent-light-gold outline-none md:w-[24px] md:h-[24px]  lg:w-[32px] lg:h-[32px] lg:text-sm  
+    @apply w-[28px] h-[28px] font-bold text-xs text-text-btn text-center block rounded-sm bg-accent-light-gold outline-none md:w-[32px] md:h-[32px] lg:text-sm  
       cursor-pointer transition-all duration-500
-     hover:bg-accent-dark-gold  hover:text-kakao
+      hover:bg-accent-dark-gold  hover:text-kakao
       focus:bg-accent-dark-gold focus:text-kakao;
   }
 
@@ -67,18 +67,10 @@
   }
 
   .icon {
-    @apply text-[24px] text-text-theme transition-colors duration-500
+    @apply text-[28px] text-text-theme transition-colors duration-500
       md:text-[32px]
       group-hover:text-accent-dark-gold
       group-focus:text-accent-dark-gold;
-  }
-
-  .dropdown-btn-lang {
-    @apply cursor-pointer outline-none transition-colors duration-500
-         text-text-theme text-xs font-semibold md:text-sm
-         border border-text-theme rounded-[4px] p-[6px] 
-         hover:text-accent-dark-gold hover:border-accent-dark-gold
-         focus:text-accent-dark-gold focus:border-accent-dark-gold;
   }
 
   .no-scrollbar {
