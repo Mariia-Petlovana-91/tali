@@ -70,9 +70,9 @@ const Popup = () => {
                   e.stopPropagation();
                   handleClose();
                 }}
-                className="block ml-auto mb-[8px] icon-btn group "
+                className="block ml-auto mb-[8px] iconBtn group "
               >
-                <VscClose className="icon" />
+                <VscClose className="icon text-[28px] md:text-[32px]" />
               </button>
             )}
 

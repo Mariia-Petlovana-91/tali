@@ -62,15 +62,23 @@
     focus:bg-none focus:bg-accent-dark-gold focus:text-kakao;
   }
 
-  .icon-btn {
+  .iconBtn {
     @apply inline-flex items-center justify-center cursor-pointer focus-visible:outline-none;
   }
 
   .icon {
-    @apply text-[28px] text-text-theme transition-colors duration-500
-      md:text-[32px]
+    @apply block text-text-theme transition-colors duration-500
       group-hover:text-accent-dark-gold
       group-focus:text-accent-dark-gold;
+  }
+
+  .listContact {
+    @apply text-center mb-[16px] lg:text-left space-y-[8px];
+  }
+
+  .linkContact {
+    @apply text-sm lg:text-base font-semibold text-center 
+     text-text-theme transition-colors duration-500 hover:text-accent-dark-gold focus:text-accent-dark-gold;
   }
 
   .no-scrollbar {

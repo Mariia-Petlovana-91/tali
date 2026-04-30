@@ -9,12 +9,12 @@ const MobMenuBtn = () => {
     <button
       type="button"
       aria-label="Open mobile menu"
-      className="icon-btn group md:hidden"
+      className="iconBtn group md:hidden"
       onClick={() => {
         dispatch(openPopup({ type: 'MOBILE_MENU' }));
       }}
     >
-      <IoMenu className="icon" />
+      <IoMenu className="icon text-[28px] md:text-[32px]" />
     </button>
   );
 };
