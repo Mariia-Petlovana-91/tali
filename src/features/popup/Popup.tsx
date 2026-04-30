@@ -52,7 +52,7 @@ const Popup = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.2 }}
           onClick={handleClose}
         >
           <motion.div
@@ -61,7 +61,7 @@ const Popup = () => {
             initial={isMobMenu ? { x: -100, opacity: 0 } : { opacity: 0, y: 20, scale: 0.96 }}
             animate={isMobMenu ? { x: 0, opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
             exit={isMobMenu ? { x: -100, opacity: 0 } : { opacity: 0, y: 20, scale: 0.96 }}
-            transition={{ duration: 0.35 }}
+            transition={{ duration: 0.2 }}
           >
             {!isMobMenu && (
               <button
