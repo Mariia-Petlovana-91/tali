@@ -31,7 +31,7 @@ const MobMenu = () => {
       </div>
 
       <div>
-        <HeroBtn />
+        <HeroBtn nameClass="p-[16px] text-sm" />
         <img src={lotos} alt="decor lotos" className="w-full h-auto" />
       </div>
     </div>
