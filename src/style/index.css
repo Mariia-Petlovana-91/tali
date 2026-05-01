@@ -55,11 +55,19 @@
   }
 
   .btnHero {
-    @apply p-[16px] mb-[16px] md:p-[32px] md:mb-[24px]  font-bold rounded-lg block
+    @apply font-bold rounded-lg block text-text-btn text-center text-base
     bg-[radial-gradient(circle_at_center,#ffea7a_0%,#fff590_4%,#f6da63_15%,_38%,#be8b3c_64%,#7a5c32_100%)]
     cursor-pointer outline-none transition-all duration-500
     hover:bg-none hover:bg-accent-dark-gold hover:text-kakao
     focus:bg-none focus:bg-accent-dark-gold focus:text-kakao;
+  }
+
+  .btnSecondary {
+    @apply text-center font-bold rounded-lg block text-sm md:text-base text-kakao w-full border border-kakao p-[14px] rounded-lg
+    bg-transparent
+    cursor-pointer outline-none transition-all duration-500
+    hover:bg-accent-dark-gold hover:text-kakao hover:border-accent-dark-gold
+    focus:bg-accent-dark-gold focus:text-kakao focus:border-accent-dark-gold;
   }
 
   .iconBtn {
@@ -73,12 +81,28 @@
   }
 
   .listContact {
-    @apply text-center mb-[16px] lg:text-left space-y-[8px];
+    @apply text-center mb-[16px] lg:text-left  space-y-[8px] md:mb-[0px];
   }
 
   .linkContact {
     @apply text-sm lg:text-base font-semibold text-center 
      text-text-theme transition-colors duration-500 hover:text-accent-dark-gold focus:text-accent-dark-gold;
+  }
+
+  .baseStyle {
+    @apply text-sm font-semibold text-center transition-colors duration-300 outline-none md:text-base lg:text-lg;
+  }
+
+  .activeStyle {
+    @apply text-accent-light-gold;
+  }
+
+  .inactiveStyle {
+    @apply text-text-theme hover:text-accent-dark-gold focus:text-accent-dark-gold;
+  }
+
+  .socialLink {
+    @apply w-[32px] h-[32px] lg:w-[48px] lg:h-[48px] flex items-center justify-center rounded-sm transition-all duration-200 hover:border hover:border-[4px] hover:border-bg focus:border focus:border-[4px] focus:border-accent-dark-gold outline-none;
   }
 
   .no-scrollbar {

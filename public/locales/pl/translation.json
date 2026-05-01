@@ -21,6 +21,11 @@
   "nav": {
     "home": "Główna",
     "about": "O nas",
-    "services": "Usługi"
+    "services": "Usługi",
+    "special": "Oferta Special"
+  },
+  "footer": {
+    "socialHeader": "Dołącz do na",
+    "btnHeader": "Dla Was"
   }
 }

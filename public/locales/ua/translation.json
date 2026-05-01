@@ -21,6 +21,11 @@
   "nav": {
     "home": "Головна",
     "about": "Про нас",
-    "services": "Послуги"
+    "services": "Послуги",
+    "special": "Пропозиція Special"
+  },
+  "footer": {
+    "socialHeader": "Приєднуйтеся до нас",
+    "btnHeader": "Для Вас"
   }
 }

@@ -7,64 +7,76 @@ import { PiWhatsappLogoBold } from 'react-icons/pi';
 
 const SocialLinkList = () => {
   return (
-    <ul>
+    <ul className="flex justify-center gap-[16px]">
       <li>
         <a
           href="https://instagram.com/yourname"
+          aria-label="Go to facebook"
           target="_blank"
           rel="noopener noreferrer"
-          className=" bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600"
+          className=" bg-sky-700 socialLink"
         >
-          <FaSquareInstagram className="text-xl text-pink-100" />
+          <FaSquareFacebook className="text-xl lg:text-3xl text-sky-100" />
         </a>
       </li>
       <li>
-        <a href="https://instagram.com/yourname" target="_blank" rel="noopener noreferrer" className=" bg-sky-700">
-          <FaSquareFacebook className="text-xl text-sky-100" />
+        <a
+          href="https://instagram.com/yourname"
+          aria-label="Go to instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+          className=" bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 socialLink"
+        >
+          <FaSquareInstagram className="text-xl lg:text-3xl text-pink-100" />
         </a>
       </li>
       <li>
         <a
           href="https://www.tiktok.com/@yourname"
+          aria-label="Go to linkedin"
           target="_blank"
           rel="noopener noreferrer"
           className="
-             bg-gradient-to-tr from-cyan-400 via-black to-pink-500"
+             bg-sky-700 socialLink"
         >
-          <RiTiktokLine className="text-xl text-white" />
+          <BsLinkedin className="text-xl lg:text-3xl text-white" />
         </a>
       </li>
       <li>
         <a
           href="https://www.tiktok.com/@yourname"
+          aria-label="Go to tiktok"
           target="_blank"
           rel="noopener noreferrer"
           className="
-             bg-sky-700"
+          bg-gradient-to-tr from-cyan-400 via-black to-pink-500 socialLink"
         >
-          <BsLinkedin className="text-xl text-white" />
+          <RiTiktokLine className="text-xl lg:text-3xl text-white" />
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="https://www.tiktok.com/@yourname"
+          aria-label="Go to telegram"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+             bg-sky-700 socialLink"
+        >
+          <SiTelegram className="text-xl lg:text-3xl text-white" />
         </a>
       </li>
       <li>
         <a
           href="https://www.tiktok.com/@yourname"
+          aria-label="Go to whatsapp"
           target="_blank"
           rel="noopener noreferrer"
           className="
-             bg-sky-700"
+             bg-[#25D366] socialLink"
         >
-          <SiTelegram className="text-xl text-white" />
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://www.tiktok.com/@yourname"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="
-             bg-[#25D366]"
-        >
-          <PiWhatsappLogoBold className="text-xl text-white" />
+          <PiWhatsappLogoBold className="text-xl lg:text-3xl text-white " />
         </a>
       </li>
     </ul>

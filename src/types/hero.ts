@@ -20,3 +20,7 @@ export type UseHeroIntroParams = {
   rootRef: RefObject<HTMLDivElement | null>;
   stageRef: RefObject<HTMLDivElement | null>;
 };
+
+export type BtnHeroProps = {
+  nameClass: string;
+};

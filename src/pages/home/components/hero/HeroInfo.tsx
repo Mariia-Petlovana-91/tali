@@ -38,7 +38,7 @@ const HeroInfo = () => {
       <p className="text-center text-text-theme font-normal text-sm mb-[16px] md:text-base md:mb-[24px]">
         {t('hero.description')}
       </p>
-      <HeroBtn />
+      <HeroBtn nameClass=" p-[16px] mb-[16px] md:p-[32px] md:mb-[24px] " />
       <img src={dekor} alt="dekor element lotos" className="hidden lg:block" width={400} />
     </div>
   );
