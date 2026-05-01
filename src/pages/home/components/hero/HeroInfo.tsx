@@ -9,32 +9,58 @@ import { HeroBtn } from '@/shared';
 
 const HeroInfo = () => {
   const { t } = useTranslation();
+
   return (
-    <div className="relative flex flex-col justify-center items-center gap-[16px] mb-[24px] md:gap-[24px] lg:mb-[0px] lg:pr-[24px] ">
-      <h1 className="sr-only">TALIA 2.KO</h1>
+    <div className="relative flex flex-col justify-center items-center gap-[16px] mb-[24px] md:gap-[24px] lg:mb-0 lg:pr-[24px]">
+      <h1 className="sr-only">Talia K2O</h1>
+
       <picture>
         <source media="(max-width: 768px)" srcSet={logoMob} />
-        <img src={logoDesk} alt="Talia K2O logo" width={164} height={180} className="w-[90px] md:w-[140px] h-auto" />
+        <img
+          src={logoDesk}
+          alt="Talia K2O logo"
+          width={164}
+          height={180}
+          fetchPriority="high"
+          sizes="(max-width: 768px) 90px, 140px"
+          className="w-[90px] md:w-[140px] h-auto"
+        />
       </picture>
+
       <picture>
         <source media="(max-width: 768px)" srcSet={nameMob} />
         <img
           src={nameDesk}
-          alt="TALIA 2.KO Main hero image"
-          loading="eager"
-          decoding="async"
-          className="w-[280px] md:w-[400px] h-auto"
+          alt="Talia K2O"
           width={560}
           height={130}
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          sizes="(max-width: 768px) 280px, 400px"
+          className="w-[280px] md:w-[400px] h-auto"
         />
       </picture>
+
       <p className="text-center text-accent-light-gold font-bold text-sm md:text-base">{t('hero.slogan')}</p>
+
       <p className="text-center text-text-theme font-normal text-sm mb-[16px] md:text-base md:mb-[24px]">
         {t('hero.description')}
       </p>
-      <HeroBtn nameClass=" p-[16px] mb-[16px] md:p-[32px] md:mb-[24px] " />
-      <img src={dekor} alt="dekor element lotos" className="hidden lg:block" width={400} height="auto" />
+
+      <HeroBtn nameClass="p-[16px] mb-[16px] md:p-[32px] md:mb-[24px]" />
+
+      <img
+        src={dekor}
+        alt="Decorative lotus element"
+        width={1000}
+        height={188}
+        loading="lazy"
+        decoding="async"
+        className="hidden lg:block w-[400px] h-auto"
+      />
     </div>
   );
 };
+
 export default HeroInfo;
