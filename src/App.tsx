@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import { useSelector } from 'react-redux';
+import { selectActiveModal } from '@/redux/popup/selectors';
 
 import { MainLoyout as Layout } from '@/loyouts';
 import { Loader } from '@/shared';
@@ -14,6 +16,8 @@ const NotFound = lazy(() => import('@/pages/notFound/NotFound'));
 const Special = lazy(() => import('@/pages/special/Special'));
 
 const App = () => {
+  const activeModal = useSelector(selectActiveModal);
+
   return (
     <>
       <Suspense fallback={<Loader />}>
@@ -23,13 +27,13 @@ const App = () => {
             <Route path="about" element={<About />} />
             <Route path="services" element={<Services />} />
             <Route path="special" element={<Special />} />
-
             <Route path="profile" element={<Profile />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
+
+        {activeModal && <Popup />}
       </Suspense>
-      <Popup />
     </>
   );
 };

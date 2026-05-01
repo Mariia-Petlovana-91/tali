@@ -33,7 +33,7 @@ const HeroInfo = () => {
         {t('hero.description')}
       </p>
       <HeroBtn nameClass=" p-[16px] mb-[16px] md:p-[32px] md:mb-[24px] " />
-      <img src={dekor} alt="dekor element lotos" className="hidden lg:block" width={400} />
+      <img src={dekor} alt="dekor element lotos" className="hidden lg:block" width={400} height="auto" />
     </div>
   );
 };
