@@ -10,7 +10,7 @@ const SocialLinkList = () => {
     <ul className="flex justify-center gap-[16px]">
       <li>
         <a
-          href="https://instagram.com/yourname"
+          href="https://facebook.com/yourname"
           aria-label="Go to facebook"
           target="_blank"
           rel="noopener noreferrer"
@@ -32,7 +32,7 @@ const SocialLinkList = () => {
       </li>
       <li>
         <a
-          href="https://www.tiktok.com/@yourname"
+          href="https://linkedin.com/in/yourname"
           aria-label="Go to linkedin"
           target="_blank"
           rel="noopener noreferrer"
@@ -57,7 +57,7 @@ const SocialLinkList = () => {
 
       <li>
         <a
-          href="https://www.tiktok.com/@yourname"
+          href="https://t.me/yourname"
           aria-label="Go to telegram"
           target="_blank"
           rel="noopener noreferrer"
@@ -69,7 +69,7 @@ const SocialLinkList = () => {
       </li>
       <li>
         <a
-          href="https://www.tiktok.com/@yourname"
+          href="https://wa.me/48730685755"
           aria-label="Go to whatsapp"
           target="_blank"
           rel="noopener noreferrer"
