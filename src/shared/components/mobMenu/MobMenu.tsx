@@ -19,8 +19,8 @@ const MobMenu = () => {
     border-r border-accent-light-gold flex flex-col justify-between items-center"
     >
       <div>
-        <a href="/" className="block mx-auto mb-[56px]">
-          <img src={logo} alt="logo" className="w-[80px] h-auto" aria-label="Go Home" />
+        <a href="/" aria-label="Go Home " className="block mx-auto mb-[56px]">
+          <img src={logo} width={164} height={180} alt="logo" className="w-[80px] h-auto" />
         </a>
 
         <Navigation

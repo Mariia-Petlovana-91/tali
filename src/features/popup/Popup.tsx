@@ -2,14 +2,17 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { VscClose } from 'react-icons/vsc';
 import { AnimatePresence, motion } from 'framer-motion';
+import { lazy } from 'react';
 
 import { closePopup } from '@/redux/popup/slice';
 import { selectActiveModal, selectIsOpen } from '@/redux/popup/selectors';
 
 import { useEscapeHook } from '@/hooks/useEscapeHook';
 import { useScrollLock } from '@/hooks/useScrollLockHook';
-import { HeroImgModal, ImageFullModal } from '@/pages/home/components/hero';
+import { HeroImgModal } from '@/pages/home/components/hero';
 import { MobMenu } from '@/shared';
+
+const ImageFullModal = lazy(() => import('@/pages/home/components/hero/ImageFullModal'));
 
 const Popup = () => {
   const isOpen = useSelector(selectIsOpen);

@@ -14,13 +14,7 @@ const HeroInfo = () => {
       <h1 className="sr-only">TALIA 2.KO</h1>
       <picture>
         <source media="(max-width: 768px)" srcSet={logoMob} />
-        <img
-          src={logoDesk}
-          alt="TALIA 2.KO logo"
-          loading="eager"
-          decoding="async"
-          className="w-[90px] h-[90px] md:w-[140px] md:h-[150px]"
-        />
+        <img src={logoDesk} alt="Talia K2O logo" width={164} height={180} className="w-[90px] md:w-[140px] h-auto" />
       </picture>
       <picture>
         <source media="(max-width: 768px)" srcSet={nameMob} />
@@ -30,8 +24,8 @@ const HeroInfo = () => {
           loading="eager"
           decoding="async"
           className="w-[280px] md:w-[400px] h-auto"
-          width={400}
-          height={80}
+          width={560}
+          height={130}
         />
       </picture>
       <p className="text-center text-accent-light-gold font-bold text-sm md:text-base">{t('hero.slogan')}</p>

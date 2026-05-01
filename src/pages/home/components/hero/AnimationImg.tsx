@@ -68,8 +68,8 @@ const AnimationImg = () => {
             src={piece.preview}
             alt={piece.alt}
             draggable={false}
-            width={500}
-            height={500}
+            width={480}
+            height={360}
             className="absolute inset-0 h-full w-full object-cover select-none pointer-events-none"
           />
         ))}
