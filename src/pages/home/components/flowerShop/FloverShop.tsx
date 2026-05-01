@@ -1,6 +1,6 @@
 const FloverShop = () => {
   return (
-    <div className="w-full bg-accent-dark-gold h-[500px]">
+    <div className="w-full bg-accent-dark-gold h-[700px]">
       {' '}
       <h2 className="text-kakao text-center text-[32px] mb-[32px]">
         тут має бути квятярня на яку ти Олю ще не кинула фоточки!😅
