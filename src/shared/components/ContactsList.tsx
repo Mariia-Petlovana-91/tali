@@ -9,7 +9,7 @@ const ContactsList = () => {
         <a
           className="linkContact iconBtn group"
           aria-label="Go to the google mop and view address Talia 2.KO"
-          href="https://www.google.com/maps/search/?api=1&query=Górczewska+228A/u7,+01-460+Warszawa"
+          href="https://maps.app.goo.gl/NijQN7t8kG6u8N4C8?g_st=ac"
           target="_blank"
           rel="noreferrer noopener"
         >
