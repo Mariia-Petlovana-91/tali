@@ -22,10 +22,13 @@
     "home": "Główna",
     "about": "O nas",
     "services": "Usługi",
+    "events": "Dekoracja wydarzeń",
+    "scenery": "Dekoracja lokali",
+    "plaster-relief": "Dekoracja rzeźbiarska",
     "special": "Oferta Special"
   },
   "footer": {
-    "socialHeader": "Dołącz do na",
+    "socialHeader": "Dołącz do nas",
     "btnHeader": "Dla Was"
   }
 }

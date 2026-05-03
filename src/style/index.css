@@ -90,7 +90,7 @@
   }
 
   .baseStyle {
-    @apply text-sm font-semibold text-center transition-colors duration-300 outline-none md:text-base lg:text-lg;
+    @apply text-sm font-semibold text-center cursor-pointer transition-colors duration-300 outline-none md:text-base lg:text-lg;
   }
 
   .activeStyle {

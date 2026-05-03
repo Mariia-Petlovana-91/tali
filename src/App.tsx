@@ -10,10 +10,12 @@ const Popup = lazy(() => import('./features/popup/Popup'));
 
 const Home = lazy(() => import('@/pages/home/Home'));
 const About = lazy(() => import('@/pages/about/About'));
-const Services = lazy(() => import('@/pages/services/Services'));
-const Profile = lazy(() => import('@/pages/profile/Profile'));
-const NotFound = lazy(() => import('@/pages/notFound/NotFound'));
+const Events = lazy(() => import('@/pages/events/Events'));
+const Scenery = lazy(() => import('@/pages/scenery/Scenery'));
+const PlasterRelief = lazy(() => import('@/pages/plaster-relief/PlasterRelief'));
 const Special = lazy(() => import('@/pages/special/Special'));
+const NotFound = lazy(() => import('@/pages/notFound/NotFound'));
+const Profile = lazy(() => import('@/pages/profile/Profile'));
 
 const App = () => {
   const activeModal = useSelector(selectActiveModal);
@@ -25,8 +27,10 @@ const App = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
-            <Route path="services" element={<Services />} />
-            <Route path="special" element={<Special />} />
+            <Route path="services/events" element={<Events />} />
+            <Route path="services/scenery" element={<Scenery />} />
+            <Route path="services/plaster-relief" element={<PlasterRelief />} />
+            <Route path="services/special" element={<Special />} />
             <Route path="profile" element={<Profile />} />
           </Route>
           <Route path="*" element={<NotFound />} />
