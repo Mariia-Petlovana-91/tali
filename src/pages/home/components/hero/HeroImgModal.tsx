@@ -39,6 +39,7 @@ const HeroImgModal = ({ piece, onNavigate }: HeroImgModalProps) => {
           >
             {' '}
             <img
+              loading="eager"
               src={piece.full}
               alt={piece.alt}
               draggable={false}
