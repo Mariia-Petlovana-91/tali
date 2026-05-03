@@ -21,6 +21,7 @@ const HeroImgModal = ({ piece, onNavigate }: HeroImgModalProps) => {
   };
   return (
     <div
+      // onClick={(e) => e.stopPropagation()}
       style={{ '--decor-bg': `url(${modal})` } as React.CSSProperties}
       className="relative w-[calc(100vw-32px)] max-w-[360px] md:max-w-[600px] p-[24px] md:p-[32px] rounded-lg bg-bg  before:content-[''] before:absolute before:inset-0
   before:bg-[image:var(--decor-bg)]
