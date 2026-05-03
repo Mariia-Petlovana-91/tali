@@ -1,4 +1,5 @@
-import { MobMenuBtn, Navigation, Language, Logo } from '@/shared';
+import { Logo } from '@/shared';
+import { MobMenuBtn, Navigation, Language } from '@/features';
 
 const Header = () => {
   return (

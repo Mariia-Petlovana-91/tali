@@ -10,7 +10,7 @@ import { selectActiveModal, selectIsOpen } from '@/redux/popup/selectors';
 import { useEscapeHook } from '@/hooks/useEscapeHook';
 import { useScrollLock } from '@/hooks/useScrollLockHook';
 import { HeroImgModal } from '@/pages/home/components/hero';
-import { MobMenu } from '@/shared';
+import { MobMenu } from '@/features';
 
 const ImageFullModal = lazy(() => import('@/pages/home/components/hero/ImageFullModal'));
 

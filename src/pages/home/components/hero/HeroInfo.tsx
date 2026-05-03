@@ -21,7 +21,6 @@ const HeroInfo = () => {
           alt="Talia K2O logo"
           width={164}
           height={180}
-          fetchPriority="high"
           sizes="(max-width: 768px) 90px, 140px"
           className="w-[90px] md:w-[140px] h-auto"
         />
@@ -34,7 +33,6 @@ const HeroInfo = () => {
           alt="Talia K2O"
           width={560}
           height={130}
-          fetchPriority="high"
           loading="eager"
           decoding="async"
           sizes="(max-width: 768px) 280px, 400px"

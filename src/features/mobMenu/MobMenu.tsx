@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
 
 import { closePopup } from '@/redux/popup/slice';
-import { Navigation, HeroBtn } from '@/shared';
+import { HeroBtn } from '@/shared';
+import { Navigation } from '@/features';
 
 import logo from '@/img/logo/logoTaliaMob.webp';
 import lotos from '@/img/dekor/decorLotos.webp';
