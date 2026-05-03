@@ -102,7 +102,7 @@
   }
 
   .socialLink {
-    @apply w-[32px] h-[32px] lg:w-[48px] lg:h-[48px] flex items-center justify-center rounded-sm transition-all duration-200 hover:border hover:border-[4px] hover:border-bg focus:border focus:border-[4px] focus:border-accent-dark-gold outline-none;
+    @apply w-[32px] h-[32px] lg:w-[48px] lg:h-[48px] flex items-center justify-center rounded-sm transition-all duration-200 hover:border hover:border-[4px] hover:border-bg focus:border focus:border-[4px] focus:border-bg outline-none;
   }
 
   .no-scrollbar {
