@@ -11,9 +11,86 @@ import { getPointerProgress } from './helpers';
  * Вона НЕ повинна повторно запускатися після закриття модалки.
  */
 
+// const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
+//   const glow = root.querySelector<HTMLElement>('[data-glow]');
+//   const allPieces = gsap.utils.toArray<HTMLElement>(root.querySelectorAll('[data-piece]'));
+
+//   gsap.set(stage, {
+//     transformPerspective: 1200,
+//     transformStyle: 'preserve-3d',
+//     perspectiveOrigin: '50% 50%',
+//   });
+
+//   gsap.set(allPieces, {
+//     y: 8,
+//     scale: 0.988,
+//     rotation: (i) => (i % 2 === 0 ? 0.8 : -0.8),
+//     transformOrigin: 'center center',
+//     force3D: true,
+
+//     backfaceVisibility: 'hidden',
+//     willChange: 'transform',
+//   });
+
+//   if (glow) {
+//     gsap.set(glow, {
+//       scale: 0.992,
+//       y: 4,
+//       transformOrigin: 'center center',
+//       force3D: true,
+
+//       backfaceVisibility: 'hidden',
+//       willChange: 'transform',
+//     });
+//   }
+
+//   const intro = gsap.timeline({
+//     defaults: {
+//       ease: 'expo.out',
+//     },
+//   });
+
+//   if (glow) {
+//     intro.to(
+//       glow,
+//       {
+//         y: 0,
+//         scale: 1,
+//         duration: 0.9,
+//       },
+//       0,
+//     );
+//   }
+
+//   intro.to(
+//     allPieces,
+//     {
+//       y: 0,
+//       scale: 1,
+//       rotation: 0,
+//       duration: 0.95,
+//       stagger: {
+//         each: 0.025,
+//         from: 'start',
+//       },
+//       clearProps: 'willChange',
+//     },
+//     0.02,
+//   );
+
+//   if (glow) {
+//     intro.set(glow, { clearProps: 'willChange' }, '>-0.1');
+//   }
+
+//   return intro;
+// };
+
 const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
   const glow = root.querySelector<HTMLElement>('[data-glow]');
   const allPieces = gsap.utils.toArray<HTMLElement>(root.querySelectorAll('[data-piece]'));
+
+  const travelPadding = 96;
+  const jitter = 44;
 
   gsap.set(stage, {
     transformPerspective: 1200,
@@ -21,26 +98,62 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
     perspectiveOrigin: '50% 50%',
   });
 
+  const rootRect = root.getBoundingClientRect();
+
+  const edgeVectors: Array<{ x: -1 | 0 | 1; y: -1 | 0 | 1 }> = [
+    { x: -1, y: 0 }, // left
+    { x: 1, y: 0 }, // right
+    { x: 0, y: -1 }, // top
+    { x: 0, y: 1 }, // bottom
+    { x: -1, y: -1 }, // top-left
+    { x: 1, y: -1 }, // top-right
+    { x: -1, y: 1 }, // bottom-left
+    { x: 1, y: 1 }, // bottom-right
+  ];
+
+  const startOffsets = allPieces.map((piece, index) => {
+    const pieceRect = piece.getBoundingClientRect();
+    const edge = edgeVectors[index % edgeVectors.length];
+
+    const x =
+      edge.x === -1
+        ? rootRect.left - pieceRect.right - travelPadding
+        : edge.x === 1
+          ? rootRect.right - pieceRect.left + travelPadding
+          : gsap.utils.random(-jitter, jitter, 1);
+
+    const y =
+      edge.y === -1
+        ? rootRect.top - pieceRect.bottom - travelPadding
+        : edge.y === 1
+          ? rootRect.bottom - pieceRect.top + travelPadding
+          : gsap.utils.random(-jitter, jitter, 1);
+
+    return { x, y };
+  });
+
   gsap.set(allPieces, {
-    y: 8,
-    scale: 0.988,
-    rotation: (i) => (i % 2 === 0 ? 0.8 : -0.8),
+    x: (index) => startOffsets[index].x,
+    y: (index) => startOffsets[index].y,
+
+    scale: 0.94,
+    rotation: (index) => (index % 2 === 0 ? 5 : -5),
+    autoAlpha: 0,
     transformOrigin: 'center center',
     force3D: true,
-
     backfaceVisibility: 'hidden',
-    willChange: 'transform',
+    willChange: 'transform, opacity',
   });
 
   if (glow) {
     gsap.set(glow, {
-      scale: 0.992,
-      y: 4,
+      scale: 0.96,
+      y: 24,
+      autoAlpha: 0,
       transformOrigin: 'center center',
       force3D: true,
-
       backfaceVisibility: 'hidden',
-      willChange: 'transform',
+      willChange: 'transform, opacity',
     });
   }
 
@@ -56,26 +169,30 @@ const animateIntro = (root: HTMLDivElement, stage: HTMLDivElement) => {
       {
         y: 0,
         scale: 1,
-        duration: 0.9,
+        autoAlpha: 1,
+        duration: 0.85,
       },
-      0,
+      0.05,
     );
   }
 
   intro.to(
     allPieces,
     {
+      x: 0,
       y: 0,
+
       scale: 1,
       rotation: 0,
-      duration: 0.95,
+      autoAlpha: 1,
+      duration: 1.15,
       stagger: {
-        each: 0.025,
-        from: 'start',
+        each: 0.035,
+        from: 'random',
       },
       clearProps: 'willChange',
     },
-    0.02,
+    0,
   );
 
   if (glow) {
